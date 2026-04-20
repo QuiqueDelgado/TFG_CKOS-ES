@@ -1,0 +1,19 @@
+DELIMITER $$
+
+CREATE TRIGGER validar_stock
+BEFORE INSERT ON lineas_pedido
+FOR EACH ROW
+BEGIN
+    DECLARE v_stock INT;
+
+    SELECT stock INTO v_stock
+    FROM productos
+    WHERE idproducto = NEW.producto_id;
+
+    IF v_stock < NEW.cantidad THEN
+        SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT = 'Stock insuficiente';
+    END IF;
+END$$
+
+DELIMITER ;
