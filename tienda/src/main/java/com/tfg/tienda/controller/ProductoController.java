@@ -19,4 +19,9 @@ public class ProductoController {
     public List<Producto> getAll() {
         return repo.findAll();
     }
+
+    @PostMapping // endpoint POST
+    public Producto crear(@RequestBody Producto producto) { // Convierte JSON 
+        return repo.save(producto); //Guarda en MySQL
+    }
 }
