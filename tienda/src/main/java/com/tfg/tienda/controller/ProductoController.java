@@ -4,42 +4,41 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import com.tfg.tienda.model.Producto;
 import com.tfg.tienda.repository.ProductoRepository;
+import com.tfg.tienda.service.ProductoService;
+import com.tfg.tienda.service.ProductoService;
 
 @RestController
 @RequestMapping("/productos")
 public class ProductoController {
 
-    private final ProductoRepository repo;
+   private final ProductoService service;
 
-    public ProductoController(ProductoRepository repo) {
-        this.repo = repo;
+    public ProductoController(ProductoService service) {
+        this.service = service;
     }
 
-    @GetMapping
+   @GetMapping
     public List<Producto> getAll() {
-        return repo.findAll();
+        return service.getAll();
     }
 
-    @PostMapping // endpoint POST
-    public Producto crear(@RequestBody Producto producto) { // Convierte JSON 
-        return repo.save(producto); //Guarda en MySQL
+    @GetMapping("/{id}")
+    public Producto getById(@PathVariable Integer id) {
+        return service.getById(id);
+    }
+
+    @PostMapping
+    public Producto crear(@RequestBody Producto producto) {
+        return service.crear(producto);
     }
 
     @PutMapping("/{id}")
     public Producto actualizar(@PathVariable Integer id, @RequestBody Producto producto) {
-        return repo.findById(id)
-            .map(p -> {
-                p.setNombre(producto.getNombre());
-                p.setPrecio(producto.getPrecio());
-                p.setCategoriaId(producto.getCategoriaId());
-                p.setStock(producto.getStock());
-                return repo.save(p);
-            })
-            .orElseThrow(() -> new RuntimeException("Producto no encontrado"));
+        return service.actualizar(id, producto);
     }
 
     @DeleteMapping("/{id}")
     public void eliminar(@PathVariable Integer id) {
-        repo.deleteById(id);
+        service.eliminar(id);
     }
 }
