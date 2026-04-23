@@ -1,30 +1,33 @@
+error id: file://<WORKSPACE>/tienda/src/main/java/com/tfg/tienda/model/Producto.java:_empty_/Table#name#
+file://<WORKSPACE>/tienda/src/main/java/com/tfg/tienda/model/Producto.java
+empty definition using pc, found symbol in pc: _empty_/Table#name#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 147
+uri: file://<WORKSPACE>/tienda/src/main/java/com/tfg/tienda/model/Producto.java
+text:
+```scala
 package com.tfg.tienda.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import java.math.BigDecimal;
 
-/**
- * Entidad que representa la tabla productos en la bbdd.
- * Incluye validaciones para garantizar la integridad de los datos.
- */
-@Entity // Marca la clase como entidad JPA
-@Table(name = "productos") // Nombre de la tabla en BD
+@Entity
+@Table(@@name = "productos")
 public class Producto {
 
-    // Clave primaria autoincremental
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idproducto")
     private Integer id;
 
-    // Nombre obligatorio y no vacío
     @NotBlank(message = "El nombre es obligatorio")
     @Column(nullable = false, length = 100)
     private String nombre;
 
-    // Precio obligatorio y mayor que 0
-    // Se usa BigDecimal para evitar errores de precisión
     @NotNull(message = "El precio es obligatorio")
     @DecimalMin(value = "0.0", inclusive = false, message = "El precio debe ser mayor que 0")
     private BigDecimal precio;
@@ -33,7 +36,6 @@ public class Producto {
     @Column(name = "categoria_id", nullable = false)
     private Integer categoriaId;
 
-    // Stock no puede ser negativo
     @NotNull(message = "El stock es obligatorio")
     @Min(value = 0, message = "El stock no puede ser negativo")
     private Integer stock;
@@ -56,3 +58,10 @@ public class Producto {
     public void setStock(Integer stock) { this.stock = stock; }
 }
 
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: _empty_/Table#name#
