@@ -1,3 +1,14 @@
+error id: file://<WORKSPACE>/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java:_empty_/Producto#
+file://<WORKSPACE>/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java
+empty definition using pc, found symbol in pc: _empty_/Producto#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 1491
+uri: file://<WORKSPACE>/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java
+text:
+```scala
 package com.tfg.tienda.service;
 
 import org.springframework.stereotype.Service;
@@ -50,7 +61,7 @@ public class ProductoService {
 
     // Eliminar producto
     public void eliminar(Integer id) {
-    Producto producto = repo.findById(id)
+    @@Producto producto = repo.findById(id)
         .orElseThrow(() -> new RuntimeException("Producto no encontrado"));
 
     try {
@@ -58,5 +69,12 @@ public class ProductoService {
     } catch (Exception e) {
         throw new RuntimeException("No se puede eliminar el producto porque está asociado a pedidos");
     }
-    }
+}
 } 
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: _empty_/Producto#

@@ -36,4 +36,10 @@ public class GlobalExceptionHandler {
 
         return respuesta;
     }
+
+    @ExceptionHandler(Exception.class)
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    public Map<String, String> manejarGeneral(Exception ex) {
+        return Map.of("error", ex.getMessage());
+    }
 }
