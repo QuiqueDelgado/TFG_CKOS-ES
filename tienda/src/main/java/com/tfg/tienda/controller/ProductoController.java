@@ -24,4 +24,22 @@ public class ProductoController {
     public Producto crear(@RequestBody Producto producto) { // Convierte JSON 
         return repo.save(producto); //Guarda en MySQL
     }
+
+    @PutMapping("/{id}")
+    public Producto actualizar(@PathVariable Integer id, @RequestBody Producto producto) {
+        return repo.findById(id)
+            .map(p -> {
+                p.setNombre(producto.getNombre());
+                p.setPrecio(producto.getPrecio());
+                p.setCategoriaId(producto.getCategoriaId());
+                p.setStock(producto.getStock());
+                return repo.save(p);
+            })
+            .orElseThrow(() -> new RuntimeException("Producto no encontrado"));
+    }
+
+    @DeleteMapping("/{id}")
+    public void eliminar(@PathVariable Integer id) {
+        repo.deleteById(id);
+    }
 }
