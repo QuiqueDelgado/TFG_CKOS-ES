@@ -22,13 +22,26 @@ public class CarritoController {
 
     @PostMapping("/{id}/items")
     public Carrito añadir(@PathVariable Integer id,
-                          @RequestParam Integer productoId,
-                          @RequestParam Integer cantidad) {
+    @RequestParam Integer productoId,
+    @RequestParam Integer cantidad) {
         return service.añadirProducto(id, productoId, cantidad);
     }
 
     @PostMapping("/{id}/checkout")
     public Pedido checkout(@PathVariable Integer id) {
-    return service.convertirAPedido(id);
-}
+        return service.convertirAPedido(id);
+    }
+
+    @DeleteMapping("/{id}/items")
+    public Carrito eliminar(@PathVariable Integer id,
+    @RequestParam Integer productoId) {
+        return service.eliminarProducto(id, productoId);
+    }
+
+    @PutMapping("/{id}/items")
+    public Carrito actualizar(@PathVariable Integer id,
+    @RequestParam Integer productoId,
+    @RequestParam Integer cantidad) {
+        return service.actualizarCantidad(id, productoId, cantidad);
+    }
 }

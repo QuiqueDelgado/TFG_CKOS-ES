@@ -85,4 +85,37 @@ public class CarritoService {
 
         return pedidoGuardado;
     }
+
+    public Carrito eliminarProducto(Integer carritoId, Integer productoId) {
+
+    Carrito carrito = carritoRepo.findById(carritoId)
+        .orElseThrow(() -> new RuntimeException("Carrito no encontrado"));
+
+    carrito.getItems().removeIf(item ->
+        item.getProducto().getId().equals(productoId)
+    );
+
+    return carritoRepo.save(carrito);
+    }
+
+    public Carrito actualizarCantidad(Integer carritoId, Integer productoId, Integer cantidad) {
+
+    Carrito carrito = carritoRepo.findById(carritoId)
+        .orElseThrow(() -> new RuntimeException("Carrito no encontrado"));
+
+    for (ItemCarrito item : carrito.getItems()) {
+        if (item.getProducto().getId().equals(productoId)) {
+
+            if (cantidad <= 0) {
+                carrito.getItems().remove(item);
+            } else {
+                item.setCantidad(cantidad);
+            }
+
+            return carritoRepo.save(carrito);
+        }
+    }
+
+    throw new RuntimeException("Producto no está en el carrito");
+    }
 }
