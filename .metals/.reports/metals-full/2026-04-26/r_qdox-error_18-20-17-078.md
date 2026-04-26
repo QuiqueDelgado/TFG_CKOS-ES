@@ -1,0 +1,79 @@
+error id: file://<WORKSPACE>/tienda/src/main/java/com/tfg/tienda/service/CustomUserDetailsService.java
+file://<WORKSPACE>/tienda/src/main/java/com/tfg/tienda/service/CustomUserDetailsService.java
+### com.thoughtworks.qdox.parser.ParseException: syntax error @[29,1]
+
+error in qdox parser
+file content:
+```java
+offset: 826
+uri: file://<WORKSPACE>/tienda/src/main/java/com/tfg/tienda/service/CustomUserDetailsService.java
+text:
+```scala
+package com.tfg.tienda.service;
+
+import org.springframework.security.core.userdetails.*;
+import org.springframework.stereotype.Service;
+import com.tfg.tienda.repository.UsuarioRepository;
+
+@Service
+public class CustomUserDetailsService implements UserDetailsService {
+
+    private final UsuarioRepository repo;
+
+    public CustomUserDetailsService(UsuarioRepository repo) {
+        this.repo = repo;
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+
+        var user = repo.findByEmail(email)
+            .orElseThrow(() -> new UsernameNotFoundException("Usuario no encontrado"));
+
+        return User
+            .withUsername(user.getEmail())
+            .password(user.getPassword())
+            .roles(user.getRol())
+            .build();
+    }
+    @Service
+p@@ublic class CustomUserDetailsService implements UserDetailsService
+}
+```
+
+```
+
+
+
+#### Error stacktrace:
+
+```
+com.thoughtworks.qdox.parser.impl.Parser.yyerror(Parser.java:2025)
+	com.thoughtworks.qdox.parser.impl.Parser.yyparse(Parser.java:2147)
+	com.thoughtworks.qdox.parser.impl.Parser.parse(Parser.java:2006)
+	com.thoughtworks.qdox.library.SourceLibrary.parse(SourceLibrary.java:232)
+	com.thoughtworks.qdox.library.SourceLibrary.parse(SourceLibrary.java:190)
+	com.thoughtworks.qdox.library.SourceLibrary.addSource(SourceLibrary.java:94)
+	com.thoughtworks.qdox.library.SourceLibrary.addSource(SourceLibrary.java:89)
+	com.thoughtworks.qdox.library.SortedClassLibraryBuilder.addSource(SortedClassLibraryBuilder.java:162)
+	com.thoughtworks.qdox.JavaProjectBuilder.addSource(JavaProjectBuilder.java:174)
+	scala.meta.internal.mtags.JavaMtags.indexRoot(JavaMtags.scala:49)
+	scala.meta.internal.metals.SemanticdbDefinition$.foreachWithReturnMtags(SemanticdbDefinition.scala:99)
+	scala.meta.internal.metals.Indexer.indexSourceFile(Indexer.scala:560)
+	scala.meta.internal.metals.Indexer.$anonfun$reindexWorkspaceSources$3(Indexer.scala:691)
+	scala.meta.internal.metals.Indexer.$anonfun$reindexWorkspaceSources$3$adapted(Indexer.scala:688)
+	scala.collection.IterableOnceOps.foreach(IterableOnce.scala:630)
+	scala.collection.IterableOnceOps.foreach$(IterableOnce.scala:628)
+	scala.collection.AbstractIterator.foreach(Iterator.scala:1313)
+	scala.meta.internal.metals.Indexer.reindexWorkspaceSources(Indexer.scala:688)
+	scala.meta.internal.metals.MetalsLspService.$anonfun$onChange$2(MetalsLspService.scala:940)
+	scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.scala:18)
+	scala.concurrent.Future$.$anonfun$apply$1(Future.scala:691)
+	scala.concurrent.impl.Promise$Transformation.run(Promise.scala:500)
+	java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	java.base/java.lang.Thread.run(Thread.java:1447)
+```
+#### Short summary: 
+
+QDox parse error in file://<WORKSPACE>/tienda/src/main/java/com/tfg/tienda/service/CustomUserDetailsService.java

@@ -1,7 +1,17 @@
+error id: file://<WORKSPACE>/tienda/src/main/java/com/tfg/tienda/model/Categoria.java:_empty_/GenerationType#
+file://<WORKSPACE>/tienda/src/main/java/com/tfg/tienda/model/Categoria.java
+empty definition using pc, found symbol in pc: _empty_/GenerationType#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 231
+uri: file://<WORKSPACE>/tienda/src/main/java/com/tfg/tienda/model/Categoria.java
+text:
+```scala
 package com.tfg.tienda.model;
 
 import jakarta.persistence.*;
-import java.util.List; // 🔥 FALTABA
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
@@ -9,7 +19,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 public class Categoria {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = Genera@@tionType.IDENTITY)
     @Column(name = "idcategoria")
     private Integer id;
 
@@ -17,6 +27,7 @@ public class Categoria {
     private String nombre;
 
     @OneToMany(mappedBy = "categoria")
+    @JsonManagedReference
     private List<Producto> productos;
 
     // GETTERS Y SETTERS
@@ -36,12 +47,11 @@ public class Categoria {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-
-    public List<Producto> getProductos() {
-        return productos;
-    }
-
-    public void setProductos(List<Producto> productos) {
-        this.productos = productos;
-    }
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: _empty_/GenerationType#

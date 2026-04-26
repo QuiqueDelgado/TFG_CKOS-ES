@@ -3,7 +3,7 @@ package com.tfg.tienda.model;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import java.math.BigDecimal;
-
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 /**
  * Entidad que representa la tabla productos en la bbdd.
  * Incluye validaciones para garantizar la integridad de los datos.
@@ -32,12 +32,15 @@ public class Producto {
     @NotNull(message = "La categoria es obligatoria")
     @ManyToOne
     @JoinColumn(name = "categoria_id", nullable = false)
+    @JsonIgnoreProperties("productos")
+
     private Categoria categoria;
 
     // Stock no puede ser negativo
     @NotNull(message = "El stock es obligatorio")
     @Min(value = 0, message = "El stock no puede ser negativo")
     private Integer stock;
+    
 
     // GETTERS Y SETTERS
 

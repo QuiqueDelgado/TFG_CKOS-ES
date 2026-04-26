@@ -1,3 +1,14 @@
+error id: file://<WORKSPACE>/tienda/src/main/java/com/tfg/tienda/service/PedidoService.java:_empty_/PedidoRepository#
+file://<WORKSPACE>/tienda/src/main/java/com/tfg/tienda/service/PedidoService.java
+empty definition using pc, found symbol in pc: _empty_/PedidoRepository#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 343
+uri: file://<WORKSPACE>/tienda/src/main/java/com/tfg/tienda/service/PedidoService.java
+text:
+```scala
 package com.tfg.tienda.service;
 
 import org.springframework.stereotype.Service;
@@ -6,13 +17,11 @@ import com.tfg.tienda.repository.*;
 import java.util.List;
 import java.math.BigDecimal;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.web.server.ResponseStatusException;
-import org.springframework.http.HttpStatus;
 
 @Service
 public class PedidoService {
 
-    private final PedidoRepository pedidoRepo;
+    private final PedidoReposito@@ry pedidoRepo;
     private final ProductoRepository productoRepo;
     private final UsuarioRepository usuarioRepo;
 
@@ -26,9 +35,11 @@ public class PedidoService {
 }
 
     public Pedido crearPedido(Pedido pedido) {
-    
     if (pedido.getLineas() == null || pedido.getLineas().isEmpty()) {
-    throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "El pedido no puede estar vacío");
+    throw new RuntimeException("El pedido no puede estar vacío");
+}
+    if (pedido.getLineas() == null || pedido.getLineas().isEmpty()) {
+    throw new RuntimeException("El pedido no puede estar vacío");
 }
     BigDecimal total = BigDecimal.ZERO;
 
@@ -64,7 +75,6 @@ public class PedidoService {
     pedido.setTotal(total);
 
     return pedidoRepo.save(pedido);
-    
     }
 
     public List<Pedido> misPedidos() {
@@ -73,5 +83,10 @@ public class PedidoService {
 
     return pedidoRepo.findByUsuarioEmail(email);
     }   
-    
 }
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: _empty_/PedidoRepository#

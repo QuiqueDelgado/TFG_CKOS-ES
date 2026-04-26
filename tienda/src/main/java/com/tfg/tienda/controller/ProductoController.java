@@ -31,8 +31,10 @@ public class ProductoController {
      */
     @GetMapping
     public List<Producto> getAll() {
-        return service.getAll(); // Delega al Service
-    }
+    List<Producto> productos = service.getAll();
+    System.out.println("Productos: " + productos);
+    return productos;
+}
 
     /**
      * Obtiene un producto por ID

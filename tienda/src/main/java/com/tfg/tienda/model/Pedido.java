@@ -1,4 +1,5 @@
 package com.tfg.tienda.model;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import java.util.List;
@@ -20,6 +21,11 @@ public class Pedido {
     @Column(nullable = false)
     private BigDecimal total;
 
+    @ManyToOne
+    @JoinColumn(name = "usuario_id", nullable = false)
+    @JsonIgnoreProperties({"password"}) // evita exponer password
+    private Usuario usuario;
+
     // GETTERS Y SETTERS
 
     public Integer getId() { return id; }
@@ -30,4 +36,7 @@ public class Pedido {
 
     public BigDecimal getTotal() { return total; }
     public void setTotal(BigDecimal total) { this.total = total; }
+
+    public Usuario getUsuario() { return usuario; }
+    public void setUsuario(Usuario usuario) { this.usuario = usuario; }
 }
