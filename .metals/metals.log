@@ -2240,3 +2240,360 @@ WARNING: Unmatched cancel notification for request id 255
 2026.04.23 14:45:35 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
 2026.04.23 14:45:36 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
 2026.04.23 14:45:36 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
+2026.04.23 15:02:07 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.23 15:02:07 WARN  no build target for: /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java
+abr 23, 2026 3:02:07 P. M. org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 863
+2026.04.23 15:02:07 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.23 15:02:29 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/controller/ProductoController.java. Using fallback presentation compiler.
+2026.04.23 15:02:29 WARN  no build target for: /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/controller/ProductoController.java
+2026.04.23 15:02:29 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/controller/ProductoController.java. Using fallback presentation compiler.
+2026.04.23 15:02:29 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/controller/ProductoController.java. Using fallback presentation compiler.
+2026.04.23 15:02:29 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/controller/ProductoController.java. Using fallback presentation compiler.
+2026.04.23 15:02:52 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/controller/ProductoController.java. Using fallback presentation compiler.
+2026.04.23 15:02:58 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
+2026.04.23 15:02:58 WARN  no build target for: /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java
+2026.04.23 15:02:58 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
+2026.04.23 15:02:58 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
+2026.04.23 15:02:58 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
+2026.04.23 15:03:02 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
+2026.04.23 15:03:19 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/repository/ProductoRepository.java. Using fallback presentation compiler.
+2026.04.23 15:03:19 WARN  no build target for: /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/repository/ProductoRepository.java
+2026.04.23 15:03:19 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/repository/ProductoRepository.java. Using fallback presentation compiler.
+2026.04.23 15:03:19 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/repository/ProductoRepository.java. Using fallback presentation compiler.
+2026.04.23 15:03:19 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/repository/ProductoRepository.java. Using fallback presentation compiler.
+2026.04.23 15:03:21 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.23 15:03:21 WARN  no build target for: /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java
+2026.04.23 15:03:21 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.23 15:32:43 INFO  Shutting down server
+2026.04.23 15:32:43 INFO  Memory monitor stopped
+2026.04.23 15:32:43 INFO  shutting down Metals
+2026.04.23 15:32:43 INFO  Exiting server
+2026.04.25 21:38:57 INFO  Started: Metals version 1.6.7 in folders '/Users/kikedelgado/tfg' for client Visual Studio Code 1.117.0.
+2026.04.25 21:38:57 INFO  Memory monitor started
+2026.04.25 21:38:57 WARN  Using H2 2.4.240 which is newer than the version Flyway has been verified with. The latest verified version of H2 is 2.3.232.
+2026.04.25 21:38:58 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+abr 25, 2026 9:39:38 P. M. org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+2026.04.25 21:39:56 INFO  Shutting down server
+2026.04.25 21:39:56 INFO  Memory monitor stopped
+2026.04.25 21:39:56 INFO  shutting down Metals
+2026.04.25 21:39:56 INFO  Exiting server
+2026.04.25 21:39:56 ERROR Unexpected error initializing server: 
+org.eclipse.lsp4j.jsonrpc.ResponseErrorException: Request window/showMessageRequest failed with message: Canceled
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleResponse(RemoteEndpoint.java:214)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:198)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:189)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:97)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:97)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	at java.lang.Thread.run(Thread.java:1447)
+
+2026.04.26 11:52:16 INFO  Started: Metals version 1.6.7 in folders '/Users/kikedelgado/tfg' for client Visual Studio Code 1.117.0.
+2026.04.26 11:52:16 INFO  Memory monitor started
+2026.04.26 11:52:16 WARN  Using H2 2.4.240 which is newer than the version Flyway has been verified with. The latest verified version of H2 is 2.3.232.
+2026.04.26 11:52:20 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 11:52:25 WARN  no build target for: /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java
+2026.04.26 11:52:25 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+abr 26, 2026 11:52:32 A. M. org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+2026.04.26 11:53:15 WARN  no build target for: /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java
+2026.04.26 11:53:15 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 11:53:27 WARN  no build target for: /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java
+2026.04.26 11:53:27 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 11:53:40 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 11:53:40 WARN  no build target for: /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/repository/ProductoRepository.java
+2026.04.26 11:53:40 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/repository/ProductoRepository.java. Using fallback presentation compiler.
+2026.04.26 11:53:40 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/repository/ProductoRepository.java. Using fallback presentation compiler.
+abr 26, 2026 11:53:40 A. M. org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 16
+2026.04.26 11:53:40 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/repository/ProductoRepository.java. Using fallback presentation compiler.
+2026.04.26 11:53:40 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/repository/ProductoRepository.java. Using fallback presentation compiler.
+2026.04.26 11:53:40 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/repository/ProductoRepository.java. Using fallback presentation compiler.
+2026.04.26 11:53:41 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/repository/ProductoRepository.java. Using fallback presentation compiler.
+2026.04.26 11:53:41 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
+2026.04.26 11:53:41 WARN  no build target for: /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java
+2026.04.26 11:53:41 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
+2026.04.26 11:53:41 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
+2026.04.26 11:53:41 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
+abr 26, 2026 11:53:41 A. M. org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 27
+2026.04.26 11:53:41 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
+2026.04.26 11:53:41 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
+2026.04.26 11:53:42 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
+2026.04.26 11:53:41 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
+2026.04.26 11:53:44 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
+2026.04.26 11:53:59 WARN  no build target for: /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Categoria.java
+2026.04.26 11:53:59 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Categoria.java. Using fallback presentation compiler.
+2026.04.26 11:53:59 WARN  Running javac-semanticdb failed for file:///Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Categoria.java. Output:
+
+2026.04.26 11:53:59 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Categoria.java. Using fallback presentation compiler.
+2026.04.26 11:53:59 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Categoria.java. Using fallback presentation compiler.
+2026.04.26 11:53:59 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Categoria.java. Using fallback presentation compiler.
+2026.04.26 11:53:59 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Categoria.java. Using fallback presentation compiler.
+2026.04.26 11:53:59 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Categoria.java. Using fallback presentation compiler.
+2026.04.26 11:54:00 WARN  no build target for: /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Categoria.java
+2026.04.26 11:54:00 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Categoria.java. Using fallback presentation compiler.
+2026.04.26 11:54:05 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Categoria.java. Using fallback presentation compiler.
+2026.04.26 11:54:05 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Categoria.java. Using fallback presentation compiler.
+2026.04.26 11:54:06 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Categoria.java. Using fallback presentation compiler.
+2026.04.26 11:54:06 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Categoria.java. Using fallback presentation compiler.
+2026.04.26 11:54:06 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Categoria.java. Using fallback presentation compiler.
+2026.04.26 11:54:06 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Categoria.java. Using fallback presentation compiler.
+2026.04.26 11:54:07 WARN  no build target for: /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Categoria.java
+2026.04.26 11:54:07 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Categoria.java. Using fallback presentation compiler.
+2026.04.26 11:54:07 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Categoria.java. Using fallback presentation compiler.
+2026.04.26 11:54:07 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Categoria.java. Using fallback presentation compiler.
+2026.04.26 11:54:08 WARN  no build target for: /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Categoria.java
+2026.04.26 11:54:08 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Categoria.java. Using fallback presentation compiler.
+2026.04.26 11:55:00 WARN  no build target for: /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/repository/CategoriaRepository.java
+2026.04.26 11:55:00 WARN  Running javac-semanticdb failed for file:///Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/repository/CategoriaRepository.java. Output:
+
+2026.04.26 11:55:00 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/repository/CategoriaRepository.java. Using fallback presentation compiler.
+2026.04.26 11:55:00 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/repository/CategoriaRepository.java. Using fallback presentation compiler.
+2026.04.26 11:55:00 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/repository/CategoriaRepository.java. Using fallback presentation compiler.
+2026.04.26 11:55:00 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/repository/CategoriaRepository.java. Using fallback presentation compiler.
+2026.04.26 11:55:00 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/repository/CategoriaRepository.java. Using fallback presentation compiler.
+2026.04.26 11:55:00 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/repository/CategoriaRepository.java. Using fallback presentation compiler.
+2026.04.26 11:55:01 WARN  no build target for: /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/repository/CategoriaRepository.java
+2026.04.26 11:55:00 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/repository/CategoriaRepository.java. Using fallback presentation compiler.
+2026.04.26 11:55:04 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/repository/CategoriaRepository.java. Using fallback presentation compiler.
+2026.04.26 11:55:04 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/repository/CategoriaRepository.java. Using fallback presentation compiler.
+2026.04.26 11:55:05 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/repository/CategoriaRepository.java. Using fallback presentation compiler.
+2026.04.26 11:55:05 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/repository/CategoriaRepository.java. Using fallback presentation compiler.
+2026.04.26 11:55:05 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/repository/CategoriaRepository.java. Using fallback presentation compiler.
+2026.04.26 11:55:05 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/repository/CategoriaRepository.java. Using fallback presentation compiler.
+2026.04.26 11:55:05 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/repository/CategoriaRepository.java. Using fallback presentation compiler.
+2026.04.26 11:55:06 WARN  no build target for: /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/repository/CategoriaRepository.java
+2026.04.26 11:55:06 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/repository/CategoriaRepository.java. Using fallback presentation compiler.
+2026.04.26 11:55:50 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 11:55:50 WARN  no build target for: /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java
+2026.04.26 11:55:50 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 11:55:50 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 11:55:53 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 11:55:53 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 11:56:04 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 11:56:04 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 11:56:05 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 11:56:05 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 11:56:07 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 11:56:07 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 11:56:07 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 11:56:07 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 11:56:07 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 11:56:08 WARN  no build target for: /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java
+2026.04.26 11:56:08 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 11:56:08 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 11:56:08 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 11:56:09 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 11:56:09 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 11:56:11 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 11:56:11 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 11:56:11 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 11:56:11 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 11:56:11 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 11:56:12 WARN  no build target for: /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java
+2026.04.26 11:56:12 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 11:56:12 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 11:56:12 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 11:56:12 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 11:56:12 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 11:56:12 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 11:56:13 WARN  no build target for: /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java
+2026.04.26 11:56:13 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 11:56:14 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 11:56:18 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 11:56:18 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 11:56:19 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 11:56:19 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 11:56:19 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 11:56:19 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 11:56:19 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 11:56:19 WARN  no build target for: /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java
+2026.04.26 11:56:20 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 11:56:21 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 11:56:31 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 11:56:32 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 11:56:33 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 11:56:33 WARN  no build target for: /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java
+2026.04.26 11:56:33 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 11:56:34 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 11:56:33 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 11:56:34 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 11:56:34 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 11:56:34 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 11:56:35 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 11:56:35 WARN  no build target for: /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java
+2026.04.26 11:56:35 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 11:56:35 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 11:56:36 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 11:56:36 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 11:56:36 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 11:56:37 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 11:56:37 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 11:56:38 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 11:56:37 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 11:56:38 WARN  no build target for: /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java
+2026.04.26 11:56:38 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 11:56:39 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 11:56:39 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 11:56:40 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 11:56:39 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 11:56:40 WARN  no build target for: /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java
+2026.04.26 11:56:40 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 11:56:41 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 11:56:44 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 11:56:44 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 11:56:54 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 11:56:54 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 11:56:55 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 11:56:55 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 11:56:57 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 11:56:58 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 11:56:58 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 11:56:58 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 11:56:59 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 11:56:58 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 11:56:58 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 11:57:00 WARN  no build target for: /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java
+2026.04.26 11:57:00 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 11:57:00 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 11:58:50 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
+2026.04.26 11:58:50 WARN  no build target for: /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java
+2026.04.26 11:58:50 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
+2026.04.26 11:58:50 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
+2026.04.26 11:58:50 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
+2026.04.26 11:58:50 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
+2026.04.26 11:58:50 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
+2026.04.26 11:58:50 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
+2026.04.26 11:58:55 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
+2026.04.26 11:59:54 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
+2026.04.26 12:00:02 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
+2026.04.26 12:00:02 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
+2026.04.26 12:00:05 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 12:00:05 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
+2026.04.26 12:00:05 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
+2026.04.26 12:00:44 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
+2026.04.26 12:00:44 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
+2026.04.26 12:00:44 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
+2026.04.26 12:00:44 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
+2026.04.26 12:00:45 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
+2026.04.26 12:00:45 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
+2026.04.26 12:00:47 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
+2026.04.26 12:00:48 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
+2026.04.26 12:00:48 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
+2026.04.26 12:00:48 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
+2026.04.26 12:00:48 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
+2026.04.26 12:00:48 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
+2026.04.26 12:00:48 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
+2026.04.26 12:00:48 WARN  no build target for: /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java
+2026.04.26 12:00:49 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
+2026.04.26 12:00:50 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
+2026.04.26 12:00:57 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/controller/ProductoController.java. Using fallback presentation compiler.
+2026.04.26 12:00:57 WARN  no build target for: /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/controller/ProductoController.java
+2026.04.26 12:00:57 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/controller/ProductoController.java. Using fallback presentation compiler.
+2026.04.26 12:00:57 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/controller/ProductoController.java. Using fallback presentation compiler.
+2026.04.26 12:00:57 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/controller/ProductoController.java. Using fallback presentation compiler.
+2026.04.26 12:00:57 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/controller/ProductoController.java. Using fallback presentation compiler.
+2026.04.26 12:00:57 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/controller/ProductoController.java. Using fallback presentation compiler.
+2026.04.26 12:00:57 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/controller/ProductoController.java. Using fallback presentation compiler.
+2026.04.26 12:00:57 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/controller/ProductoController.java. Using fallback presentation compiler.
+2026.04.26 12:00:57 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/controller/ProductoController.java. Using fallback presentation compiler.
+2026.04.26 12:01:04 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 12:01:04 WARN  no build target for: /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java
+2026.04.26 12:01:04 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 12:01:09 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 12:01:12 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
+2026.04.26 12:01:12 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
+2026.04.26 12:01:14 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 12:01:16 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 12:01:16 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 12:01:19 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 12:01:19 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 12:01:19 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 12:01:19 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 12:01:19 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 12:01:20 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 12:01:20 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 12:01:21 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 12:01:21 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 12:01:22 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 12:01:22 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
+2026.04.26 12:01:23 WARN  no build target for: /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java
+2026.04.26 12:01:23 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 12:01:25 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 12:01:25 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 12:01:25 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 12:01:26 WARN  no build target for: /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java
+2026.04.26 12:01:26 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 12:01:27 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
+2026.04.26 12:01:27 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
+2026.04.26 12:01:29 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
+2026.04.26 12:01:29 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
+2026.04.26 12:01:29 WARN  no build target for: /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java
+2026.04.26 12:01:29 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
+2026.04.26 12:01:29 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
+2026.04.26 12:01:29 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
+2026.04.26 12:01:29 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
+2026.04.26 12:01:30 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
+2026.04.26 12:01:32 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
+2026.04.26 12:01:32 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
+2026.04.26 12:01:45 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
+2026.04.26 12:01:45 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
+2026.04.26 12:01:53 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
+2026.04.26 12:02:03 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
+2026.04.26 12:02:03 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
+2026.04.26 12:02:03 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
+2026.04.26 12:02:04 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
+2026.04.26 12:02:05 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
+2026.04.26 12:02:18 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
+2026.04.26 12:02:18 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
+2026.04.26 12:02:18 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
+2026.04.26 12:02:28 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
+2026.04.26 12:02:32 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
+2026.04.26 12:02:32 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
+2026.04.26 12:02:37 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
+2026.04.26 12:02:37 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
+2026.04.26 12:02:38 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
+2026.04.26 12:02:38 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
+2026.04.26 12:02:42 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
+2026.04.26 12:02:42 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
+2026.04.26 12:02:42 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
+2026.04.26 12:02:44 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
+2026.04.26 12:02:44 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
+2026.04.26 12:05:24 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
+2026.04.26 12:05:24 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
+2026.04.26 12:05:32 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
+2026.04.26 12:05:32 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
+2026.04.26 12:05:32 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
+2026.04.26 12:05:32 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
+2026.04.26 12:05:37 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/controller/ProductoController.java. Using fallback presentation compiler.
+2026.04.26 12:24:20 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
+2026.04.26 12:24:20 WARN  no build target for: /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java
+2026.04.26 12:24:20 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
+2026.04.26 12:24:34 WARN  no build target for: /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java
+2026.04.26 12:24:34 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/service/ProductoService.java. Using fallback presentation compiler.
+2026.04.26 12:28:13 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 12:28:14 WARN  no build target for: /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java
+2026.04.26 12:28:13 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 12:28:14 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 12:28:13 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 12:28:26 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 12:28:28 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 12:28:29 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 12:28:45 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 12:28:45 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 12:29:15 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 12:29:15 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 12:29:17 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 12:29:17 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 12:29:18 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 12:29:19 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 12:29:19 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 12:29:19 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 12:29:19 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.
+2026.04.26 12:29:20 WARN  no build target for: /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java
+2026.04.26 12:29:20 INFO  no build target found for /Users/kikedelgado/tfg/tienda/src/main/java/com/tfg/tienda/model/Producto.java. Using fallback presentation compiler.

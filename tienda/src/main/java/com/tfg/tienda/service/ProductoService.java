@@ -41,7 +41,7 @@ public class ProductoService {
                 .map(p -> {
                     p.setNombre(producto.getNombre());
                     p.setPrecio(producto.getPrecio());
-                    p.setCategoriaId(producto.getCategoriaId());
+                    p.setCategoria(producto.getCategoria());
                     p.setStock(producto.getStock());
                     return repo.save(p);
                 })

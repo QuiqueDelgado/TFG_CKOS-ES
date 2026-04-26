@@ -30,8 +30,9 @@ public class Producto {
     private BigDecimal precio;
 
     @NotNull(message = "La categoria es obligatoria")
-    @Column(name = "categoria_id", nullable = false)
-    private Integer categoriaId;
+    @ManyToOne
+    @JoinColumn(name = "categoria_id", nullable = false)
+    private Categoria categoria;
 
     // Stock no puede ser negativo
     @NotNull(message = "El stock es obligatorio")
@@ -49,10 +50,14 @@ public class Producto {
     public BigDecimal getPrecio() { return precio; }
     public void setPrecio(BigDecimal precio) { this.precio = precio; }
 
-    public Integer getCategoriaId() { return categoriaId; }
-    public void setCategoriaId(Integer categoriaId) { this.categoriaId = categoriaId; }
-
     public Integer getStock() { return stock; }
     public void setStock(Integer stock) { this.stock = stock; }
+
+    public Categoria getCategoria() {
+    return categoria;
+}
+    public void setCategoria(Categoria categoria) {
+    this.categoria = categoria;
+}
 }
 
