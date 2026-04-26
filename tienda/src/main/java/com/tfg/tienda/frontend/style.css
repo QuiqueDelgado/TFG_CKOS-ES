@@ -3,6 +3,7 @@ body {
   font-family: Arial;
   background: #4C443C;
   color: white;
+  overflow-x: hidden;
 }
 
 /* HEADER */
@@ -145,4 +146,77 @@ button:hover {
     flex-direction: column;
     gap: 10px;
   }
+}
+
+.detalle {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+.detalle-container {
+  display: flex;
+  gap: 40px;
+}
+
+.imagen {
+  width: 500px;
+  height: 300px;
+  background: #666;
+}
+
+.info {
+  flex: 1;
+}
+
+/* footer fijo */
+.footer-compra {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: #2e2a25;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+#miniCarrito {
+    position: fixed;
+    top: 120px;
+    right: 20px;
+    width: 260px;
+
+    background: #1f1f1f;
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+
+    z-index: 9999; /* 🔥 CLAVE */
+}
+
+.item-carrito {
+    display: grid;
+    grid-template-columns: 1fr auto auto auto;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.item-carrito button {
+    background: #3b60e4;
+    border: none;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.item-carrito button:hover {
+    opacity: 0.8;
+}
+
+.controles {
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }

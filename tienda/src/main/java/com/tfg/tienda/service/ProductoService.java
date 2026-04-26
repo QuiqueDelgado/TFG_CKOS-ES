@@ -1,6 +1,9 @@
 package com.tfg.tienda.service;
 
 import org.springframework.stereotype.Service;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.server.ResponseStatusException;
+
 import java.util.List;
 
 import com.tfg.tienda.model.Producto;
@@ -19,23 +22,32 @@ public class ProductoService {
         this.repo = repo;
     }
 
-    // Obtener todos los productos
+    /**
+     * Obtener todos los productos
+     */
     public List<Producto> getAll() {
         return repo.findAll();
     }
 
-    // Obtener por ID (lanza excepción si no existe)
+    /**
+     * Obtener producto por ID
+     */
     public Producto getById(Integer id) {
         return repo.findById(id)
-                .orElseThrow(() -> new RuntimeException("Producto no encontrado"));
+                .orElseThrow(() -> new ResponseStatusException(
+                        HttpStatus.NOT_FOUND, "Producto no encontrado"));
     }
 
-    // Crear producto
+    /**
+     * Crear producto
+     */
     public Producto crear(Producto producto) {
         return repo.save(producto);
     }
 
-    // Actualizar producto
+    /**
+     * Actualizar producto
+     */
     public Producto actualizar(Integer id, Producto producto) {
         return repo.findById(id)
                 .map(p -> {
@@ -45,18 +57,25 @@ public class ProductoService {
                     p.setStock(producto.getStock());
                     return repo.save(p);
                 })
-                .orElseThrow(() -> new RuntimeException("Producto no encontrado"));
+                .orElseThrow(() -> new ResponseStatusException(
+                        HttpStatus.NOT_FOUND, "Producto no encontrado"));
     }
 
-    // Eliminar producto
+    /**
+     * Eliminar producto
+     */
     public void eliminar(Integer id) {
-    Producto producto = repo.findById(id)
-        .orElseThrow(() -> new RuntimeException("Producto no encontrado"));
+        Producto producto = repo.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(
+                        HttpStatus.NOT_FOUND, "Producto no encontrado"));
 
-    try {
-        repo.delete(producto);
-    } catch (Exception e) {
-        throw new RuntimeException("No se puede eliminar el producto porque está asociado a pedidos");
+        try {
+            repo.delete(producto);
+        } catch (Exception e) {
+            throw new ResponseStatusException(
+                    HttpStatus.CONFLICT,
+                    "No se puede eliminar el producto porque está asociado a pedidos"
+            );
+        }
     }
-    }
-} 
+}
