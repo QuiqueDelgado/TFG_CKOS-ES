@@ -23,21 +23,26 @@ public class PedidoService {
 
             for (LineaPedido linea : pedido.getLineas()) {
 
-            Producto producto = productoRepo.findById(linea.getProducto().getId())
-                .orElseThrow(() -> new RuntimeException("Producto no encontrado"));
+    Producto producto = productoRepo.findById(linea.getProducto().getId())
+        .orElseThrow(() -> new RuntimeException("Producto no encontrado"));
 
-                linea.setProducto(producto);
-                linea.setPedido(pedido);
-
-                // precio unitario
-                linea.setPrecioUnitario(producto.getPrecio());
-
-            // subtotal línea = precio * cantidad
-            BigDecimal subtotal = producto.getPrecio()
-                .multiply(BigDecimal.valueOf(linea.getCantidad()));
-
-            total = total.add(subtotal);
+    //VALIDAR STOCK
+    if (producto.getStock() < linea.getCantidad()) {
+        throw new RuntimeException("Stock insuficiente para el producto: " + producto.getNombre());
     }
+
+    //RESTAR STOCK
+    producto.setStock(producto.getStock() - linea.getCantidad());
+
+    linea.setProducto(producto);
+    linea.setPedido(pedido);
+    linea.setPrecioUnitario(producto.getPrecio());
+
+    BigDecimal subtotal = producto.getPrecio()
+        .multiply(BigDecimal.valueOf(linea.getCantidad()));
+
+    total = total.add(subtotal);
+}
 
     pedido.setTotal(total);
     return pedidoRepo.save(pedido);
