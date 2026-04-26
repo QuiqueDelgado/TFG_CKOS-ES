@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Producto</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <img src="img/Logo.png" class="logo">
+</header>
+
+<main class="detalle">
+
+  <h1 id="nombre"></h1>
+
+  <div class="detalle-container">
+
+    <!-- IMAGEN -->
+    <div class="imagen"></div>
+
+    <!-- INFO -->
+    <div class="info">
+      <p id="descripcion"></p>
+
+      <ul id="caracteristicas"></ul>
+
+      <!-- OPCIONES -->
+      <div class="opciones">
+        <label><input type="radio" name="size"> 40g</label>
+        <label><input type="radio" name="size"> 45g</label>
+        <label><input type="radio" name="size"> 50g</label>
+      </div>
+
+    </div>
+
+  </div>
+
+</main>
+
+<!-- FOOTER FIJO -->
+<div class="footer-compra">
+  <span id="precio"></span>
+  <button onclick="addCarrito()">Añadir al carrito</button>
+</div>
+
+<script src="producto.js"></script>
+</body>
+</html>

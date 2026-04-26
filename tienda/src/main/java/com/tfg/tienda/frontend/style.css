@@ -1,0 +1,148 @@
+body {
+  margin: 0;
+  font-family: Arial;
+  background: #4C443C;
+  color: white;
+}
+
+/* HEADER */
+
+header {
+  text-align: center;
+  padding: 20px;
+  background: #2e2a25;
+}
+
+.logo {
+  width: 140px;
+}
+
+nav {
+  margin-top: 10px;
+}
+
+nav a {
+  margin: 0 15px;
+  color: white;
+  text-decoration: none;
+}
+
+/* GRID */
+
+main {
+  padding: 30px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+/* PRODUCTO */
+
+.producto {
+  background: #2e2a25;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+  transition: 0.2s;
+}
+
+.producto:hover {
+  transform: scale(1.03);
+}
+
+.img-placeholder {
+  height: 150px;
+  background: #666;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+button {
+  background: #3B60E4;
+  border: none;
+  padding: 8px;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #F17300;
+}
+.carousel-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel {
+  display: flex;
+  overflow-x: auto;
+  gap: 20px;
+  padding: 20px;
+  scroll-behavior: smooth;
+  width: 100%;
+}
+
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+
+/* tarjetas */
+.producto {
+  min-width: 180px;
+  background: #2e2a25;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+/* flechas */
+.arrow {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: white;
+}
+
+.arrow:hover {
+  color: #F17300;
+}
+.seccion {
+  max-width: 90%;
+  width: 100%;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+/* título centrado */
+.seccion h2 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+.seccion h2 {
+  text-align: center;
+  margin-bottom: 15px;
+  letter-spacing: 2px;
+}
+@media (max-width: 768px) {
+  .producto {
+    min-width: 160px; /* más pequeños */
+  }
+
+  .carousel {
+    padding: 10px;
+  }
+}
+@media (max-width: 768px) {
+  nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+}
