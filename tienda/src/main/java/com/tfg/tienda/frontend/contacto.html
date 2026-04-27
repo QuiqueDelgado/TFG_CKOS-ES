@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Contacto</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div id="header-container"></div>
+
+<main>
+  <h2 class="titulo-contacto">Contacto</h2>
+
+  <div class="contacto-container">
+    <form id="formContacto">
+      <input type="text" placeholder="Nombre">
+      <input type="email" placeholder="Email">
+      <textarea placeholder="Mensaje"></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+  </div>
+</main>
+
+<div id="footer-container"></div>
+
+<script src="app.js"></script>
+
+<script>
+window.addEventListener("load", () => {
+  cargarHeader();
+  cargarFooter();
+});
+</script>
+
+</body>
+</html>

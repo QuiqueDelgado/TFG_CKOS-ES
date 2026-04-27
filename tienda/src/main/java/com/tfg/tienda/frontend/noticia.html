@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Noticia</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div id="header-container"></div>
+
+  <main class="noticia-container">
+
+    <div id="noticia"></div>
+
+  </main>
+
+  <div id="footer-container"></div>
+
+  <script src="app.js"></script>
+
+  <script>
+    window.addEventListener("load", () => {
+      cargarHeader();
+      cargarFooter();
+      cargarNoticia();   // 👈 clave
+    });
+  </script>
+
+</body>
+</html>

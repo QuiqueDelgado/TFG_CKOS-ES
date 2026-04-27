@@ -8,42 +8,46 @@
 <body>
 
 <header>
-  <img src="img/Logo.png" class="logo">
-  <nav>
-    <a href="#">Tienda</a>
-    <a href="#">Categorías</a>
-    <a href="#">Novedades</a>
-    <a href="#">Contacto</a>
-  </nav>
+  <div id="header-container"></div>
 </header>
 
-<div id="miniCarrito"></div>
-
 <main>
-  <div id="productos" class="grid"></div>
-<div class="seccion">
-  <h2>Cases</h2>
-  <div class="carousel-wrapper">
-    <button class="arrow left" onclick="scrollCarousel('cases', -1)">◀</button>
-    <div id="cases" class="carousel"></div>
-    <button class="arrow right" onclick="scrollCarousel('cases', 1)">▶</button>
+
+<div class="hero-producto">
+  <img src="http://localhost:8080/img/productos/cases/Athena1800Banner.png" alt="Athena 1800">
+
+  <div class="hero-info">
+    <span class="badge">Nuevo</span>
+    <h2>Athena 1800</h2>
+    <p>Diseño premium 1800 compact con acabados de aluminio.</p>
+    <button onclick="verProducto(27)">Ver producto</button>
   </div>
-</div>
 
-<div class="seccion">
-  <h2>Switches</h2>
-  <div class="carousel-wrapper">
-    <button class="arrow left" onclick="scrollCarousel('switches', -1)">◀</button>
-    <div id="switches" class="carousel"></div>
-    <button class="arrow right" onclick="scrollCarousel('switches', 1)">▶</button>
+</div>
+  <!-- ===== CASES ===== -->
+  <div class="seccion">
+    <h2>Cases</h2>
+    <div class="carousel-wrapper">
+      <button class="arrow left" onclick="scrollCarousel('cases', -1)">◀</button>
+      <div id="cases" class="carousel"></div>
+      <button class="arrow right" onclick="scrollCarousel('cases', 1)">▶</button>
+    </div>
   </div>
-</div>
 
-<div id="cases" class="carousel"></div>
-<div id="switches" class="carousel"></div>
-
+  <!-- ===== SWITCHES ===== -->
+  <div class="seccion">
+    <h2>Switches</h2>
+    <div class="carousel-wrapper">
+      <button class="arrow left" onclick="scrollCarousel('switches', -1)">◀</button>
+      <div id="switches" class="carousel"></div>
+      <button class="arrow right" onclick="scrollCarousel('switches', 1)">▶</button>
+    </div>
+  </div>
 </main>
 
+ <div id="footer-container"></div>
+
 <script src="app.js"></script>
+
 </body>
 </html>

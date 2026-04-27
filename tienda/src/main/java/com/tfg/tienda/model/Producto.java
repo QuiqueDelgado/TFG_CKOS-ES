@@ -12,6 +12,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @Table(name = "productos") // Nombre de la tabla en BD
 public class Producto {
 
+    private String imagen;
+
     // Clave primaria autoincremental
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -58,9 +60,18 @@ public class Producto {
 
     public Categoria getCategoria() {
     return categoria;
-}
+    }
+
     public void setCategoria(Categoria categoria) {
     this.categoria = categoria;
-}
+    }
+
+    public String getImagen() {
+    return imagen;
+    }
+
+    public void setImagen(String imagen) {
+    this.imagen = imagen;
+    }
 }
 
