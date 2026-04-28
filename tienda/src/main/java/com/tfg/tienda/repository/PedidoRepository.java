@@ -9,5 +9,5 @@ import com.tfg.tienda.model.Pedido;
 public interface PedidoRepository extends JpaRepository<Pedido, Integer> {
 
     List<Pedido> findByUsuarioEmail(String email);
-
+    List<Pedido> findByUsuarioId(Integer usuarioId);
 }

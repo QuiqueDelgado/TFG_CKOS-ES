@@ -14,10 +14,10 @@
   <h2 class="titulo-contacto">Contacto</h2>
 
   <div class="contacto-container">
-    <form id="formContacto">
-      <input type="text" placeholder="Nombre">
-      <input type="email" placeholder="Email">
-      <textarea placeholder="Mensaje"></textarea>
+    <form id="formContacto" onsubmit="enviarContacto(event)">
+      <input type="text"  id="contactoNombre"  placeholder="Nombre"  required />
+      <input type="email" id="contactoEmail"   placeholder="Email"   required />
+      <textarea           id="contactoMensaje" placeholder="Mensaje" required></textarea>
       <button type="submit">Enviar</button>
     </form>
   </div>

@@ -1,3 +1,14 @@
+error id: file://<WORKSPACE>/tienda/src/main/java/com/tfg/tienda/service/PedidoService.java:PedidoRequestDTO/LineaDTO#getCantidad#
+file://<WORKSPACE>/tienda/src/main/java/com/tfg/tienda/service/PedidoService.java
+empty definition using pc, found symbol in pc: PedidoRequestDTO/LineaDTO#getCantidad#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 3251
+uri: file://<WORKSPACE>/tienda/src/main/java/com/tfg/tienda/service/PedidoService.java
+text:
+```scala
 package com.tfg.tienda.service;
 
 import org.springframework.stereotype.Service;
@@ -86,7 +97,7 @@ public class PedidoService {
             Producto producto = productoRepo.findById(lineaDto.getProductoId())
                     .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Producto no encontrado"));
 
-            if (producto.getStock() < lineaDto.getCantidad()) {
+            if (producto.getStock() < lineaDto.@@getCantidad()) {
                 throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Stock insuficiente: " + producto.getNombre());
             }
 
@@ -112,3 +123,10 @@ public class PedidoService {
         return pedidoRepo.findByUsuarioId(usuarioId);
     }
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: PedidoRequestDTO/LineaDTO#getCantidad#

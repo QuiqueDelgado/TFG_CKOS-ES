@@ -45,7 +45,11 @@ public class SecurityConfig {
             .sessionCreationPolicy(
                 org.springframework.security.config.http.SessionCreationPolicy.IF_REQUIRED
             )
+            
         )
+        .formLogin(form -> form.disable())
+        .httpBasic(basic -> basic.disable())
+        
         .authorizeHttpRequests(auth -> auth
             .requestMatchers(
                 "/productos/**",
@@ -55,7 +59,8 @@ public class SecurityConfig {
                 "/css/**",
                 "/js/**",
                 "/pedidos/**",
-                "/auth/**"       // ← rutas públicas de auth
+                "/auth/**", //rutas públicas de auth
+                "/contacto/**"       
             ).permitAll()
             .anyRequest().authenticated()
         );

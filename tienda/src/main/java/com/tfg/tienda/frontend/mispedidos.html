@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mis Pedidos — CKOS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f4f2ee;
+      --surface: #ffffff;
+      --border: #e0ddd7;
+      --text: #1a1a18;
+      --muted: #888680;
+      --accent: #1a1a18;
+      --mono: 'DM Mono', monospace;
+      --sans: 'DM Sans', sans-serif;
+    }
+
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    /* ===== LAYOUT ===== */
+    .pedidos-layout {
+      max-width: 780px;
+      margin: 48px auto;
+      padding: 0 24px;
+    }
+
+    .pedidos-titulo {
+      font-size: 22px;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+
+    .pedidos-subtitulo {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 32px;
+      font-family: var(--mono);
+    }
+
+    /* ===== ESTADO VACÍO / CARGANDO ===== */
+    .estado {
+      text-align: center;
+      padding: 64px 24px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .estado-icon {
+      font-size: 36px;
+      margin-bottom: 16px;
+      opacity: .35;
+    }
+
+    .estado a {
+      color: var(--text);
+      font-weight: 500;
+      text-decoration: underline;
+    }
+
+    /* ===== PEDIDO CARD ===== */
+    .pedido-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      margin-bottom: 16px;
+      overflow: hidden;
+      animation: fadeUp .3s ease both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .pedido-header {
+      display: grid;
+      grid-template-columns: 1fr auto auto;
+      align-items: center;
+      gap: 16px;
+      padding: 16px 20px;
+      cursor: pointer;
+      border-bottom: 1px solid transparent;
+      transition: background .15s;
+    }
+
+    .pedido-header:hover { background: #fafaf8; }
+    .pedido-header.abierto { border-bottom-color: var(--border); }
+
+    .pedido-id {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .pedido-fecha {
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .pedido-estado {
+      font-size: 11px;
+      font-weight: 500;
+      padding: 4px 10px;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+
+    .estado-0 { background: #FFF3CD; color: #856404; }
+    .estado-1 { background: #D1FAE5; color: #065F46; }
+    .estado-2 { background: #DBEAFE; color: #1E40AF; }
+
+    .pedido-total {
+      font-family: var(--mono);
+      font-size: 14px;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    .pedido-chevron {
+      font-size: 11px;
+      color: var(--muted);
+      transition: transform .2s;
+      margin-left: 4px;
+    }
+
+    .pedido-chevron.abierto { transform: rotate(180deg); }
+
+    /* ===== LÍNEAS ===== */
+    .pedido-lineas {
+      display: none;
+      padding: 8px 0;
+    }
+
+    .pedido-lineas.visible { display: block; }
+
+    .linea {
+      display: grid;
+      grid-template-columns: 1fr auto auto;
+      align-items: center;
+      gap: 16px;
+      padding: 12px 20px;
+      border-bottom: 1px solid var(--border);
+      font-size: 13px;
+    }
+
+    .linea:last-child { border-bottom: none; }
+
+    .linea-nombre { font-weight: 500; }
+
+    .linea-cantidad {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--muted);
+      background: var(--bg);
+      padding: 3px 10px;
+      border-radius: 20px;
+    }
+
+    .linea-precio {
+      font-family: var(--mono);
+      font-size: 13px;
+      font-weight: 500;
+      text-align: right;
+    }
+
+    /* ===== NO LOGUEADO ===== */
+    .btn-login {
+      display: inline-block;
+      margin-top: 16px;
+      padding: 10px 20px;
+      background: var(--accent);
+      color: white;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 500;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+
+<div id="header-container"></div>
+
+<main class="pedidos-layout">
+  <h1 class="pedidos-titulo">Mis pedidos</h1>
+  <p class="pedidos-subtitulo" id="pedidosSubtitulo"></p>
+  <div id="pedidosContainer">
+    <div class="estado">
+      <div class="estado-icon">⏳</div>
+      <p>Cargando pedidos...</p>
+    </div>
+  </div>
+</main>
+
+<div id="footer-container"></div>
+
+<script src="app.js"></script>
+<script>
+  const ESTADOS = {
+    0: { texto: "Pendiente", clase: "estado-0" },
+    1: { texto: "Pagado",    clase: "estado-1" },
+    2: { texto: "Enviado",   clase: "estado-2" }
+  };
+
+  function formatFecha(fechaStr) {
+    if (!fechaStr) return "";
+    return new Date(fechaStr).toLocaleDateString("es-ES", {
+      day: "numeric", month: "long", year: "numeric"
+    });
+  }
+
+  function toggleLineas(id) {
+    const lineas  = document.getElementById("lineas-" + id);
+    const chevron = document.getElementById("chevron-" + id);
+    const header  = document.getElementById("header-" + id);
+    const abierto = lineas.classList.contains("visible");
+
+    lineas.classList.toggle("visible", !abierto);
+    chevron.classList.toggle("abierto", !abierto);
+    header.classList.toggle("abierto", !abierto);
+  }
+
+  function pintarPedidos(pedidos) {
+    const cont = document.getElementById("pedidosContainer");
+    const sub  = document.getElementById("pedidosSubtitulo");
+    cont.innerHTML = "";
+
+    if (pedidos.length === 0) {
+      sub.textContent = "";
+      cont.innerHTML = `
+        <div class="estado">
+          <div class="estado-icon">📦</div>
+          <p>Todavía no tienes pedidos.<br><a href="index.html">Empieza a comprar</a></p>
+        </div>`;
+      return;
+    }
+
+    sub.textContent = pedidos.length + (pedidos.length === 1 ? " pedido" : " pedidos");
+
+    pedidos.forEach((p, i) => {
+      const estado = ESTADOS[p.estado] ?? { texto: "Desconocido", clase: "estado-0" };
+      const lineasHTML = (p.lineas ?? []).map(l => `
+        <div class="linea">
+          <span class="linea-nombre">${l.producto?.nombre ?? "Producto"}</span>
+          <span class="linea-cantidad">× ${l.cantidad}</span>
+          <span class="linea-precio">${(l.precioUnitario * l.cantidad).toFixed(2)}€</span>
+        </div>
+      `).join("");
+
+      const card = document.createElement("div");
+      card.className = "pedido-card";
+      card.style.animationDelay = (i * 0.06) + "s";
+      card.innerHTML = `
+        <div class="pedido-header" id="header-${p.id}" onclick="toggleLineas(${p.id})">
+          <div>
+            <div class="pedido-id">Pedido #${p.id}</div>
+            <div class="pedido-fecha">${formatFecha(p.fecha)}</div>
+          </div>
+          <span class="pedido-estado ${estado.clase}">${estado.texto}</span>
+          <div style="display:flex;align-items:center;gap:10px">
+            <span class="pedido-total">${parseFloat(p.total).toFixed(2)}€</span>
+            <span class="pedido-chevron" id="chevron-${p.id}">▼</span>
+          </div>
+        </div>
+        <div class="pedido-lineas" id="lineas-${p.id}">
+          ${lineasHTML || '<div class="linea"><span style="color:var(--muted)">Sin líneas</span></div>'}
+        </div>
+      `;
+      cont.appendChild(card);
+    });
+  }
+
+  async function cargarPedidos() {
+    const cont = document.getElementById("pedidosContainer");
+
+    const usuario = checkAuth();
+
+    if (!usuario) {
+      cont.innerHTML = `
+        <div class="estado">
+          <div class="estado-icon">🔒</div>
+          <p>Inicia sesión para ver tus pedidos.</p>
+          <button class="btn-login" onclick="abrirModalAuth('login')">Iniciar sesión</button>
+        </div>`;
+      return;
+    }
+
+    try {
+      const res = await fetch(BASE_URL + "/pedidos/mios?usuarioId=" + usuario.id);
+
+      if (!res.ok) throw new Error("Error al cargar pedidos");
+      const pedidos = await res.json();
+      pintarPedidos(pedidos);
+    } catch (e) {
+      cont.innerHTML = `
+        <div class="estado">
+          <div class="estado-icon">⚠️</div>
+          <p>Error al cargar los pedidos. Inténtalo de nuevo.</p>
+        </div>`;
+    }
+  }
+
+  window.addEventListener("load", () => {
+    cargarPedidos();
+  });
+</script>
+</body>
+</html>

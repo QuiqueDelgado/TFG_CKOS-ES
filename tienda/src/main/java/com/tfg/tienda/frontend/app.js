@@ -105,18 +105,23 @@ function scrollCarousel(id, direction) {
 
 // ===================== CARRITO =====================
 
-function addCarrito(event, id) {
+function addCarrito(event) {
 
     event.stopPropagation();
 
-    const btn = event.target; // 👈 botón pulsado
+    const usuario = checkAuth();
+    if (!usuario) {
+        abrirModalAuth();
+        return;
+    }
 
-    const producto = document.querySelector(`[data-id="${id}"]`);
-    if (!producto) return;
+    const btn = event.target;
+    const divProducto = btn.closest('[data-id]');
+    if (!divProducto) return;
 
-    const nombre = producto.querySelector("h4").innerText;
-    const precio = parseFloat(producto.querySelector("p").innerText);
-
+    const nombre = divProducto.querySelector("h4").innerText;
+    const precio = parseFloat(divProducto.querySelector("p").innerText);
+    const id = parseInt(divProducto.getAttribute("data-id"));
     const existente = window.carrito.find(p => p.id === id);
 
     if (existente) {
@@ -130,7 +135,6 @@ function addCarrito(event, id) {
     actualizarContador();
     abrirCarrito();
 
-    // ===== EFECTO VISUAL =====
     btn.innerText = "Añadido ✔";
     btn.style.background = "#2ecc71";
     btn.disabled = true;
@@ -411,13 +415,11 @@ function cargarHeader() {
             document.getElementById("header-container").innerHTML = html;
 
             const btn = document.querySelector(".carrito-icono");
-
             if (btn) {
-                btn.addEventListener("click", () => {
-                    console.log("CLICK OK"); // 👈 debug
-                    toggleCarrito();
-                });
+                btn.addEventListener("click", () => toggleCarrito());
             }
+
+            actualizarHeaderAuth(checkAuth());
         })
         .catch(err => console.error(err));
 }
@@ -537,8 +539,14 @@ function realizarPedido() {
 
     if (carrito.length === 0) return;
 
+    const usuario = checkAuth();
+    if (!usuario) {
+        abrirModalAuth("login");
+        return;
+    }
+
     const payload = {
-        usuarioId: 1, // ← cámbialo cuando tengas login
+        usuarioId: usuario.id,
         lineas: carrito.map(item => ({
             productoId: item.id,
             cantidad: item.cantidad
@@ -561,6 +569,7 @@ function realizarPedido() {
         actualizarContador();
         cerrarCarrito();
         alert(`✅ Pedido #${pedido.id} creado correctamente`);
+        if (typeof cargarPedidos === "function") cargarPedidos();
     })
     .catch(err => {
         console.error(err);
@@ -572,15 +581,11 @@ function realizarPedido() {
 
 const AUTH_URL = "http://localhost:8080/auth";
 
-async function checkAuth() {
-    try {
-        const res = await fetch(AUTH_URL + "/me", { credentials: "include" });
-        if (!res.ok) return null;
-        return await res.json(); // { id, email, rol }
-    } catch {
-        return null;
-    }
+function checkAuth() {
+    const data = localStorage.getItem("usuario");
+    return data ? JSON.parse(data) : null;
 }
+
 
 async function login(email, password) {
     const res = await fetch(AUTH_URL + "/login", {
@@ -612,6 +617,7 @@ async function logout() {
         method: "POST",
         credentials: "include"
     });
+    localStorage.removeItem("usuario");
     localStorage.removeItem("carrito");
     window.location.reload();
 }
@@ -717,33 +723,85 @@ async function handleRegister() {
     }
 }
 
+
+// ===== CONTACTO =====
+function enviarContacto(event) {
+    event.preventDefault();
+
+    const nombre  = document.getElementById("contactoNombre").value;
+    const email   = document.getElementById("contactoEmail").value;
+    const mensaje = document.getElementById("contactoMensaje").value;
+
+    fetch("http://localhost:8080/contacto", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ nombre, email, mensaje })
+    })
+    .then(res => {
+    if (!res.ok) throw new Error("Error al enviar");
+    document.getElementById("formContacto").reset();
+    })
+    .catch(() => alert("❌ Error al enviar el mensaje"));
+}
+
+// ===== NEWSLETTER =====
+function suscribirNewsletter(event) {
+    event.preventDefault();
+
+    const email = document.getElementById("newsletterEmail").value;
+
+    fetch("http://localhost:8080/contacto/newsletter", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email })
+    })
+    .then(res => {
+        if (!res.ok) throw new Error("Error");
+        mostrarConfirmacion("newsletter");
+    })
+    .catch(() => alert("❌ Error al suscribirse"));
+}
+
+function mostrarConfirmacion(tipo) {
+    const id = tipo === "contacto" ? "confirmacionContacto" : "confirmacionNewsletter";
+    const el = document.getElementById(id);
+    if (el) {
+        el.style.display = "block";
+        setTimeout(() => el.style.display = "none", 4000);
+    }
+}
+
+// ===== MIS PEDIDOS =====
+
 function actualizarHeaderAuth(user) {
     const wrapper = document.querySelector(".carrito-wrapper");
     if (!wrapper) return;
 
-    // Elimina botón anterior si existe
     document.getElementById("btnAuth")?.remove();
-
-    const btn = document.createElement("button");
-    btn.id = "btnAuth";
-    btn.style.cssText = "background:none;border:1px solid #ddd;padding:5px 12px;border-radius:20px;font-size:12px;cursor:pointer";
+    document.getElementById("linkMisPedidos")?.remove();
 
     if (user) {
+        // Enlace mis pedidos
+        const link = document.createElement("a");
+        link.id = "linkMisPedidos";
+        link.href = "mispedidos.html";
+        link.innerText = "Mis pedidos";
+        link.style.cssText = "font-size:13px;color:#444;text-decoration:none";
+        wrapper.prepend(link);
+
+        // Botón salir
+        const btn = document.createElement("button");
+        btn.id = "btnAuth";
         btn.innerText = "Salir";
+        btn.style.cssText = "background:none;border:1px solid #ddd;padding:5px 12px;border-radius:20px;font-size:12px;cursor:pointer";
         btn.onclick = logout;
+        wrapper.prepend(btn);
     } else {
+        const btn = document.createElement("button");
+        btn.id = "btnAuth";
         btn.innerText = "Entrar";
+        btn.style.cssText = "background:none;border:1px solid #ddd;padding:5px 12px;border-radius:20px;font-size:12px;cursor:pointer";
         btn.onclick = () => abrirModalAuth("login");
+        wrapper.prepend(btn);
     }
-
-    wrapper.prepend(btn);
 }
-
-// Comprueba sesión al cargar
-window.addEventListener("load", async () => {
-    const user = await checkAuth();
-    actualizarHeaderAuth(user);
-    if (user) localStorage.setItem("usuario", JSON.stringify(user));
-    else localStorage.removeItem("usuario");
-});
-

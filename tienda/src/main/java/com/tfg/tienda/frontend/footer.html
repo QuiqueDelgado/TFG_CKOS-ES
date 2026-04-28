@@ -19,8 +19,13 @@
 
     <div class="footer-col">
       <h4>Suscripción</h4>
-      <input type="email" placeholder="Tu email">
-      <button>Suscribirse</button>
+      <form onsubmit="suscribirNewsletter(event)">
+        <input type="email" id="newsletterEmail" placeholder="Tu email" required />
+        <button type="submit">Suscribirse</button>
+      </form>
+      <p id="confirmacionNewsletter" style="display:none;color:#2ecc71;font-size:12px;margin-top:8px">
+         ¡Suscrito correctamente!
+      </p>
     </div>
 
     <div class="footer-col">

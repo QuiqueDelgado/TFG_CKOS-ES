@@ -354,6 +354,11 @@
   <script>
     const BASE_URL = "http://localhost:8080";
 
+    function checkAuth() {
+      const data = localStorage.getItem("usuario");
+      return data ? JSON.parse(data) : null;
+    }
+
     // ===== CARGAR CARRITO =====
     function cargarCarrito() {
       const data = localStorage.getItem("carrito");
@@ -418,12 +423,18 @@
       const carrito = cargarCarrito();
       if (carrito.length === 0) return;
 
+      const usuario = checkAuth();
+      if (!usuario) {
+        window.location.href = "index.html";
+        return;
+      }
+
       const btn = document.getElementById("btnConfirmar");
       btn.classList.add("loading");
       btn.disabled = true;
 
       const payload = {
-        usuarioId: 1, // ← reemplazar con id del usuario logueado cuando haya auth
+        usuarioId: usuario.id,
         lineas: carrito.map(item => ({
           productoId: item.id,
           cantidad: item.cantidad
