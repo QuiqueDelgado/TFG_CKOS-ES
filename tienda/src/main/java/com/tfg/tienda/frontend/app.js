@@ -158,6 +158,14 @@ function abrirCarrito() {
 
 }
 
+function cerrarCarrito() {
+  const panel = document.getElementById("miniCarrito");
+  const overlay = document.getElementById("overlayCarrito");
+  if (!panel || !overlay) return;
+  panel.classList.remove("abierto");
+  overlay.classList.remove("activo");
+}
+
 function pintarMiniCarrito() {
     const cont = document.getElementById("miniCarrito");
     if (!cont) return;
@@ -175,24 +183,30 @@ function pintarMiniCarrito() {
 
         div.innerHTML = `
             <span class="nombre">${item.nombre}</span>
-
             <div class="controles">
                 <button onclick="cambiarCantidad(${item.id}, -1)">−</button>
                 <span class="cantidad">${item.cantidad}</span>
                 <button onclick="cambiarCantidad(${item.id}, 1)">+</button>
             </div>
-
-        <span class="precio">${subtotal.toFixed(2)}€</span>
-
-        <button class="eliminar" onclick="eliminarProducto(${item.id})">✕</button>
-    `;
+            <span class="precio">${subtotal.toFixed(2)}€</span>
+            <button class="eliminar" onclick="eliminarProducto(${item.id})">✕</button>
+        `;
 
         cont.appendChild(div);
     });
 
+    // Total
     const totalDiv = document.createElement("div");
-    totalDiv.innerHTML = `<strong>Total: ${total.toFixed(2)}€</strong>`;
+    totalDiv.className = "carrito-total";
+    totalDiv.innerHTML = `<span>Total</span><span>${total.toFixed(2)}€</span>`;
     cont.appendChild(totalDiv);
+
+    // Botón checkout
+    const btnCheckout = document.createElement("button");
+    btnCheckout.className = "btn-checkout";
+    btnCheckout.innerText = "Finalizar compra →";
+    btnCheckout.onclick = () => window.location.href = "checkout.html";
+    cont.appendChild(btnCheckout);
 }
 
 
@@ -235,18 +249,18 @@ window.addCarritoDirecto = function(p, cantidad, variante) {
     );
 
     if (event && event.target) {
-    const btn = event.target;
+        const btn = event.target;
 
-    btn.innerText = "Añadido ✔";
-    btn.style.background = "#2ecc71";
-    btn.disabled = true;
+        btn.innerText = "Añadido ✔";
+        btn.style.background = "#2ecc71";
+        btn.disabled = true;
 
-    setTimeout(() => {
-        btn.innerText = "Añadir al carrito";
-        btn.style.background = "black";
-        btn.disabled = false;
-    }, 1200);
-}
+        setTimeout(() => {
+            btn.innerText = "Añadir al carrito";
+            btn.style.background = "black";
+            btn.disabled = false;
+        }, 1200);
+    }
 
     if (existente) {
         existente.cantidad += cantidad;
@@ -260,23 +274,27 @@ window.addCarritoDirecto = function(p, cantidad, variante) {
             variante: variante
         });
     }
-    function toggleCarrito() {
-
-    const panel = document.getElementById("miniCarrito");
-
-    if (!panel) {
-        console.warn("miniCarrito no existe todavía");
-        return;
-    }
-
-    panel.classList.toggle("oculto");
-}
 
     guardarCarrito();
     pintarMiniCarrito();
     actualizarContador();
     abrirCarrito();
 };
+
+
+function toggleCarrito() {
+
+    const panel = document.getElementById("miniCarrito");
+    const overlay = document.getElementById("overlayCarrito");
+
+    if (!panel || !overlay) {
+        console.warn("Carrito no existe en esta página");
+        return;
+    }
+
+    panel.classList.toggle("abierto");
+    overlay.classList.toggle("activo");
+}
 
 // ===================== NAVEGACIÓN =====================
 
@@ -325,14 +343,6 @@ function pintarProducto(p) {
         li.innerText = c;
         ul.appendChild(li);
     });
-}
-
-function toggleCarrito() {
-
-    const panel = document.getElementById("miniCarrito");
-
-    panel.classList.toggle("oculto");
-
 }
 
 //==================== Categorias ==========================
@@ -399,8 +409,17 @@ function cargarHeader() {
         .then(res => res.text())
         .then(html => {
             document.getElementById("header-container").innerHTML = html;
+
+            const btn = document.querySelector(".carrito-icono");
+
+            if (btn) {
+                btn.addEventListener("click", () => {
+                    console.log("CLICK OK"); // 👈 debug
+                    toggleCarrito();
+                });
+            }
         })
-        .catch(err => console.error("Error cargando header:", err));
+        .catch(err => console.error(err));
 }
 
 // ================= FOOTER =================
@@ -466,11 +485,6 @@ function pintarBlog(data) {
 }
 
 // ================= NOTICIA =================
-
-function getIdFromUrl() {
-    const params = new URLSearchParams(window.location.search);
-    return params.get("id");
-}
 
 function cargarNoticia() {
     const id = getIdFromUrl();
