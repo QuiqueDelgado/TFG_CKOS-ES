@@ -1,3 +1,34 @@
+/*
+ * style.css — Hoja de estilos global de la tienda TFG
+ *
+ * Estructura:
+ *   BASE           → reset y tipografía general
+ *   HEADER         → barra de navegación sticky con logo, menú y carrito
+ *   PRODUCTO NOVEDAD → hero destacado en la home
+ *   SECCIONES      → contenedores genéricos de página
+ *   CARRUSEL       → slider horizontal de productos
+ *   PRODUCTO       → tarjeta de producto (usada en carrusel)
+ *   BOTONES        → estilos base de botones
+ *   FLECHAS        → controles de navegación del carrusel
+ *   MINI CARRITO   → panel lateral deslizante + overlay
+ *   DETALLE        → página de detalle de un producto
+ *   FOOTER         → pie de página con columnas y newsletter
+ *   CATEGORIAS     → grid de productos filtrado por categoría
+ *   NOVEDADES      → listado de entradas tipo blog
+ *   NOTICIA        → vista detalle de una entrada de blog
+ *   CONTACTO       → formulario de contacto centrado
+ *   INFO           → páginas de texto estático (política, términos…)
+ *   LOGIN          → modal de autenticación (login / registro)
+ *   RESPONSIVE     → media queries para tablet y móvil
+ *
+ * Breakpoints:
+ *   >= 1400px   Pantallas grandes   (5 columnas en categorías)
+ *   1025-1399px Desktop estándar    (estilos base)
+ *    769-1024px Tablet              (4 productos, 2 columnas)
+ *    481-768px  Móvil grande        (menú compacto, 2 columnas)
+ *   <= 480px    Móvil pequeño       (1 columna, panel carrito 100%)
+ */
+
 /* ===================== BASE ===================== */
 
 body {
@@ -1005,29 +1036,260 @@ button:hover {
 
 /* ===================== RESPONSIVE ===================== */
 
-/* tablet */
-
+/* ===== TABLET (≤ 1024px) ===== */
 @media (max-width: 1024px) {
+  .header {
+    padding: 12px 20px;
+  }
+
+  .logo img {
+    height: 75px;
+  }
+
+  .menu {
+    gap: 18px;
+  }
+
+  /* Carrusel: 4 productos visibles */
+  .carousel {
+    max-width: 100%;
+  }
+
+  .producto {
+    flex: 0 0 calc((100% - 60px) / 4);
+    max-width: calc((100% - 60px) / 4);
+  }
+
+  /* Categorías: 2 columnas en tablet */
   .grid-categoria {
     grid-template-columns: repeat(2, 1fr);
   }
 
-}
+  /* Blog: imagen más pequeña */
+  .blog-card img {
+    width: 220px;
+    height: 150px;
+  }
 
-/* móvil */
+  /* Hero: menos margen lateral */
+  .hero-producto {
+    margin: 20px 15px;
+  }
 
-@media (max-width: 600px) {
-  .grid-categoria {
-    grid-template-columns: 1fr;
+  /* Detalle: menos separación entre imagen e info */
+  .detalle-container {
+    gap: 25px;
   }
 }
-/* pantallas grandes */
 
+/* ===== TABLET/MÓVIL (≤ 768px) ===== */
+@media (max-width: 768px) {
+  main {
+    padding: 16px;
+  }
+
+  /* Header: logo+carrito en fila, menú debajo */
+  .header {
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto;
+    padding: 10px 16px;
+    gap: 8px;
+  }
+
+  .logo {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .logo img {
+    height: 60px;
+  }
+
+  .carrito-wrapper {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .menu {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    justify-self: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  /* Flechas del carrusel: se ocultan porque el scroll táctil las sustituye */
+  .arrow.left,
+  .arrow.right {
+    display: none;
+  }
+
+  .carousel-wrapper {
+    padding: 0;
+  }
+
+  /* Carrusel: scroll táctil con 2 productos visibles */
+  .carousel {
+    overflow-x: auto;
+    padding-bottom: 10px;
+    scroll-snap-type: x mandatory;
+  }
+
+  .producto {
+    flex: 0 0 calc((100% - 20px) / 2);
+    max-width: calc((100% - 20px) / 2);
+    scroll-snap-align: start;
+  }
+
+  /* Blog: columna única, imagen ancha */
+  .blog-card {
+    flex-direction: column !important;
+    text-align: center;
+  }
+
+  .blog-card img {
+    width: 100%;
+    height: 200px;
+  }
+
+  /* Categorías: 2 columnas con menos gap */
+  .grid-categoria {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  /* Hero: menos padding */
+  .hero-producto {
+    margin: 16px;
+    padding: 24px 16px;
+  }
+
+  /* Mini carrito: ocupa el ancho completo en móvil */
+  .mini-carrito {
+    width: 100%;
+    right: -100%;
+  }
+
+  .mini-carrito.abierto {
+    right: 0;
+  }
+
+  /* Detalle: imagen arriba, info abajo */
+  .detalle-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .info {
+    max-width: 100%;
+  }
+
+  .imagen img {
+    width: 100%;
+  }
+
+  /* Contacto: formulario de ancho completo */
+  .contacto-container {
+    padding: 0 16px;
+  }
+
+  #formContacto {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Secciones genéricas: sin márgenes laterales */
+  .seccion {
+    max-width: 100%;
+    margin: 24px auto;
+  }
+}
+
+/* ===== MÓVIL (≤ 480px) ===== */
+@media (max-width: 480px) {
+  main {
+    padding: 12px;
+  }
+
+  /* Header: más compacto */
+  .header {
+    padding: 8px 12px;
+  }
+
+  .logo img {
+    height: 45px;
+  }
+
+  .menu {
+    gap: 8px;
+  }
+
+  .menu a {
+    font-size: 12px;
+  }
+
+  /* Categorías: 1 columna */
+  .grid-categoria {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  /* Carrusel: 1 producto centrado por vez */
+  .producto {
+    flex: 0 0 80%;
+    max-width: 80%;
+  }
+
+  /* Hero */
+  .hero-info h2 {
+    font-size: 20px;
+  }
+
+  /* Detalle */
+  .detalle {
+    padding: 12px;
+    margin: 20px auto;
+  }
+
+  .detalle h1 {
+    font-size: 22px;
+  }
+
+  /* Opciones de talla/color: wrap en filas */
+  .opciones {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  /* Modal auth: casi pantalla completa */
+  .modal-auth-box {
+    width: 90%;
+    padding: 24px 20px;
+  }
+
+  /* Botón checkout con menos margen */
+  .btn-checkout {
+    margin: 0 12px 12px;
+  }
+
+  /* Footer: padding reducido */
+  .footer-top,
+  .footer-bottom {
+    padding: 24px 16px;
+  }
+
+  /* Noticia */
+  .noticia-container {
+    padding: 12px;
+    margin: 20px auto;
+  }
+}
+
+/* ===== PANTALLAS GRANDES (≥ 1400px) ===== */
 @media (min-width: 1400px) {
   .grid-categoria {
     grid-template-columns: repeat(5, 1fr);
   }
 }
-
-
 
