@@ -532,3 +532,218 @@ function actualizarContador() {
     span.innerText = total;
 }
 
+// ================ REALIZAR PEDIDO ==============
+function realizarPedido() {
+
+    if (carrito.length === 0) return;
+
+    const payload = {
+        usuarioId: 1, // ← cámbialo cuando tengas login
+        lineas: carrito.map(item => ({
+            productoId: item.id,
+            cantidad: item.cantidad
+        }))
+    };
+
+    fetch("http://localhost:8080/pedidos/nuevo", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+    })
+    .then(res => {
+        if (!res.ok) return res.text().then(t => { throw new Error(t) });
+        return res.json();
+    })
+    .then(pedido => {
+        window.carrito = [];
+        guardarCarrito();
+        pintarMiniCarrito();
+        actualizarContador();
+        cerrarCarrito();
+        alert(`✅ Pedido #${pedido.id} creado correctamente`);
+    })
+    .catch(err => {
+        console.error(err);
+        alert("❌ " + err.message);
+    });
+}
+
+// ===== AUTH =====
+
+const AUTH_URL = "http://localhost:8080/auth";
+
+async function checkAuth() {
+    try {
+        const res = await fetch(AUTH_URL + "/me", { credentials: "include" });
+        if (!res.ok) return null;
+        return await res.json(); // { id, email, rol }
+    } catch {
+        return null;
+    }
+}
+
+async function login(email, password) {
+    const res = await fetch(AUTH_URL + "/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        credentials: "include",
+        body: JSON.stringify({ email, password })
+    });
+    if (!res.ok) throw new Error("Credenciales incorrectas");
+    return await res.json();
+}
+
+async function register(email, password) {
+    const res = await fetch(AUTH_URL + "/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        credentials: "include",
+        body: JSON.stringify({ email, password })
+    });
+    if (!res.ok) {
+        const msg = await res.text();
+        throw new Error(msg || "Error al registrarse");
+    }
+    return await res.json();
+}
+
+async function logout() {
+    await fetch(AUTH_URL + "/logout", {
+        method: "POST",
+        credentials: "include"
+    });
+    localStorage.removeItem("carrito");
+    window.location.reload();
+}
+
+// ===== PROTEGER CARRITO =====
+// Sustituye tu función addCarrito por esta:
+
+async function addCarrito(event, id) {
+    event.stopPropagation();
+
+    const usuario = await checkAuth();
+    if (!usuario) {
+        abrirModalAuth(); // ← abre login en vez de añadir
+        return;
+    }
+
+    const btn = event.target;
+    const producto = document.querySelector(`[data-id="${id}"]`);
+    if (!producto) return;
+
+    const nombre = producto.querySelector("h4").innerText;
+    const precio = parseFloat(producto.querySelector("p").innerText);
+    const existente = window.carrito.find(p => p.id === id);
+
+    if (existente) {
+        existente.cantidad++;
+    } else {
+        window.carrito.push({ id, nombre, precio, cantidad: 1 });
+    }
+
+    guardarCarrito();
+    pintarMiniCarrito();
+    actualizarContador();
+    abrirCarrito();
+
+    btn.innerText = "Añadido ✔";
+    btn.style.background = "#2ecc71";
+    btn.disabled = true;
+    setTimeout(() => {
+        btn.innerText = "Añadir";
+        btn.style.background = "";
+        btn.disabled = false;
+    }, 1200);
+}
+
+// ===== MODAL AUTH =====
+
+function abrirModalAuth(modo = "login") {
+    const modal = document.getElementById("modalAuth");
+    if (modal) {
+        modal.classList.add("activo");
+        cambiarModoModal(modo);
+    }
+}
+
+function cerrarModalAuth() {
+    document.getElementById("modalAuth")?.classList.remove("activo");
+}
+
+function cambiarModoModal(modo) {
+    const titulo = document.getElementById("authTitulo");
+    const btnSubmit = document.getElementById("authSubmit");
+    const linkCambio = document.getElementById("authLink");
+
+    if (modo === "login") {
+        titulo.innerText = "Iniciar sesión";
+        btnSubmit.innerText = "Entrar";
+        linkCambio.innerHTML = `¿No tienes cuenta? <a href="#" onclick="cambiarModoModal('register')">Regístrate</a>`;
+        btnSubmit.onclick = handleLogin;
+    } else {
+        titulo.innerText = "Crear cuenta";
+        btnSubmit.innerText = "Registrarse";
+        linkCambio.innerHTML = `¿Ya tienes cuenta? <a href="#" onclick="cambiarModoModal('login')">Inicia sesión</a>`;
+        btnSubmit.onclick = handleRegister;
+    }
+}
+
+async function handleLogin() {
+    const email = document.getElementById("authEmail").value;
+    const password = document.getElementById("authPassword").value;
+    const error = document.getElementById("authError");
+    try {
+        const user = await login(email, password);
+        localStorage.setItem("usuario", JSON.stringify(user));
+        cerrarModalAuth();
+        actualizarHeaderAuth(user);
+    } catch (e) {
+        error.innerText = e.message;
+    }
+}
+
+async function handleRegister() {
+    const email = document.getElementById("authEmail").value;
+    const password = document.getElementById("authPassword").value;
+    const error = document.getElementById("authError");
+    try {
+        const user = await register(email, password);
+        localStorage.setItem("usuario", JSON.stringify(user));
+        cerrarModalAuth();
+        actualizarHeaderAuth(user);
+    } catch (e) {
+        error.innerText = e.message;
+    }
+}
+
+function actualizarHeaderAuth(user) {
+    const wrapper = document.querySelector(".carrito-wrapper");
+    if (!wrapper) return;
+
+    // Elimina botón anterior si existe
+    document.getElementById("btnAuth")?.remove();
+
+    const btn = document.createElement("button");
+    btn.id = "btnAuth";
+    btn.style.cssText = "background:none;border:1px solid #ddd;padding:5px 12px;border-radius:20px;font-size:12px;cursor:pointer";
+
+    if (user) {
+        btn.innerText = "Salir";
+        btn.onclick = logout;
+    } else {
+        btn.innerText = "Entrar";
+        btn.onclick = () => abrirModalAuth("login");
+    }
+
+    wrapper.prepend(btn);
+}
+
+// Comprueba sesión al cargar
+window.addEventListener("load", async () => {
+    const user = await checkAuth();
+    actualizarHeaderAuth(user);
+    if (user) localStorage.setItem("usuario", JSON.stringify(user));
+    else localStorage.removeItem("usuario");
+});
+

@@ -1,3 +1,14 @@
+error id: file://<WORKSPACE>/tienda/src/main/java/com/tfg/tienda/config/SecurityConfig.java:_empty_/Configuration#
+file://<WORKSPACE>/tienda/src/main/java/com/tfg/tienda/config/SecurityConfig.java
+empty definition using pc, found symbol in pc: _empty_/Configuration#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 579
+uri: file://<WORKSPACE>/tienda/src/main/java/com/tfg/tienda/config/SecurityConfig.java
+text:
+```scala
 package com.tfg.tienda.config;
 
 import org.springframework.context.annotation.Bean;
@@ -8,12 +19,12 @@ import org.springframework.security.web.SecurityFilterChain;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.authentication.AuthenticationManager;
+
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 
 import com.tfg.tienda.service.CustomUserDetailsService;
 
-@Configuration
+@Config@@uration
 public class SecurityConfig {
 
     private final CustomUserDetailsService userDetailsService;
@@ -37,38 +48,23 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-    http
-        .cors()
-        .and()
-        .csrf().disable()
-        .sessionManagement(session -> session
-            .sessionCreationPolicy(
-                org.springframework.security.config.http.SessionCreationPolicy.IF_REQUIRED
-            )
-        )
-        .authorizeHttpRequests(auth -> auth
-            .requestMatchers(
-                "/productos/**",
-                "/img/**",
-                "/noticias/**",
-                "/novedades.html",
-                "/css/**",
-                "/js/**",
-                "/pedidos/**",
-                "/auth/**"       // ← rutas públicas de auth
-            ).permitAll()
-            .anyRequest().authenticated()
-        );
+        http
+            .cors() // 🔥 ahora sí funciona
+            .and()
+            .csrf().disable()
+            .authorizeHttpRequests(auth -> auth
+                .requestMatchers(
+                    "/productos/**",
+                    "/img/**",
+                    "/noticias/**",
+                    "/novedades.html",
+                    "/css/**",
+                    "/js/**"
+                ).permitAll()
+                .anyRequest().authenticated()
+            );
 
-    return http.build();
-}
-
-
-    @Bean
-    public AuthenticationManager authenticationManager(
-        org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration config
-        ) throws Exception {
-        return config.getAuthenticationManager();
+        return http.build();
     }
 
     @Bean
@@ -94,3 +90,9 @@ public class SecurityConfig {
         return source;
     }
 }
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: _empty_/Configuration#

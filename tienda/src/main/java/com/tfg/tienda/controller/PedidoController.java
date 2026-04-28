@@ -1,8 +1,8 @@
 package com.tfg.tienda.controller;
 
 import org.springframework.web.bind.annotation.*;
-import java.util.List; // 🔥 FALTABA
-
+import java.util.List;
+import com.tfg.tienda.dto.PedidoRequestDTO;
 import com.tfg.tienda.model.Pedido;
 import com.tfg.tienda.service.PedidoService;
 
@@ -24,5 +24,10 @@ public class PedidoController {
     @GetMapping("/mios")
     public List<Pedido> misPedidos() {
         return service.misPedidos();
+    }
+
+    @PostMapping("/nuevo")
+    public Pedido crearDesdeDTO(@RequestBody PedidoRequestDTO dto) {
+    return service.crearPedidoDesdeDTO(dto);
     }
 }

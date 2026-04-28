@@ -952,6 +952,84 @@ button:hover {
 .info-page h1 {
   margin-bottom: 20px;
 }
+
+/* ===================== LOGIN ===================== */
+.modal-auth {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s ease;
+}
+
+.modal-auth.activo {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.modal-auth-box {
+  background: white;
+  border-radius: 14px;
+  padding: 32px 28px;
+  width: 100%;
+  max-width: 360px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  position: relative;
+}
+
+.modal-auth-box h2 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.modal-auth-box input {
+  padding: 10px 14px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+  transition: border .15s;
+}
+
+.modal-auth-box input:focus { border-color: #111; }
+
+.modal-auth-box button#authSubmit {
+  padding: 12px;
+  background: #111;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background .2s;
+}
+
+.modal-auth-box button#authSubmit:hover { background: #333; }
+
+.modal-auth-close {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  color: #aaa;
+}
+
+.modal-auth-close:hover { color: #111; }
+
+.modal-auth-box a { color: #111; font-weight: 500; }
+
 /* ===================== RESPONSIVE ===================== */
 
 /* tablet */
@@ -977,4 +1055,6 @@ button:hover {
     grid-template-columns: repeat(5, 1fr);
   }
 }
+
+
 

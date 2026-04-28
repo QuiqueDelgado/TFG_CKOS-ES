@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout — CKOS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f4f2ee;
+      --surface: #ffffff;
+      --border: #e0ddd7;
+      --text: #1a1a18;
+      --muted: #888680;
+      --accent: #1a1a18;
+      --accent-hover: #333330;
+      --success: #2a7a4b;
+      --danger: #c0392b;
+      --mono: 'DM Mono', monospace;
+      --sans: 'DM Sans', sans-serif;
+    }
+
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      padding: 0;
+    }
+
+    /* ===== HEADER ===== */
+    .checkout-header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 18px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .checkout-header .logo {
+      font-family: var(--mono);
+      font-size: 15px;
+      font-weight: 500;
+      letter-spacing: .08em;
+      text-decoration: none;
+      color: var(--text);
+    }
+
+    .checkout-header .step-label {
+      font-size: 12px;
+      color: var(--muted);
+      font-family: var(--mono);
+      letter-spacing: .06em;
+    }
+
+    /* ===== LAYOUT ===== */
+    .checkout-layout {
+      max-width: 860px;
+      margin: 48px auto;
+      padding: 0 24px;
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 24px;
+      align-items: start;
+    }
+
+    /* ===== CARD ===== */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .card-header {
+      padding: 20px 24px 16px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+    }
+
+    .card-header h2 {
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: .04em;
+    }
+
+    .card-header .count {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    /* ===== ITEMS ===== */
+    #resumenItems {
+      padding: 8px 0;
+    }
+
+    .checkout-item {
+      display: grid;
+      grid-template-columns: 1fr auto auto;
+      align-items: center;
+      gap: 16px;
+      padding: 14px 24px;
+      border-bottom: 1px solid var(--border);
+      animation: fadeIn .25s ease both;
+    }
+
+    .checkout-item:last-child { border-bottom: none; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .item-nombre {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text);
+      line-height: 1.4;
+    }
+
+    .item-variante {
+      font-size: 11px;
+      color: var(--muted);
+      font-family: var(--mono);
+      margin-top: 2px;
+    }
+
+    .item-cantidad {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--muted);
+      background: var(--bg);
+      border-radius: 20px;
+      padding: 3px 10px;
+      white-space: nowrap;
+    }
+
+    .item-precio {
+      font-family: var(--mono);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text);
+      white-space: nowrap;
+      text-align: right;
+    }
+
+    /* ===== CARRITO VACÍO ===== */
+    .empty-state {
+      padding: 48px 24px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .empty-state .empty-icon {
+      font-size: 32px;
+      margin-bottom: 12px;
+      opacity: .4;
+    }
+
+    /* ===== RESUMEN LATERAL ===== */
+    .summary-card {
+      position: sticky;
+      top: 24px;
+    }
+
+    .summary-rows {
+      padding: 20px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .summary-row.total {
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
+      color: var(--text);
+      font-weight: 500;
+      font-size: 15px;
+    }
+
+    .summary-row .val {
+      font-family: var(--mono);
+      font-size: 13px;
+    }
+
+    .summary-row.total .val {
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    /* ===== BOTÓN CONFIRMAR ===== */
+    .btn-confirmar {
+      display: block;
+      width: calc(100% - 48px);
+      margin: 0 24px 24px;
+      padding: 14px;
+      background: var(--accent);
+      color: white;
+      font-family: var(--sans);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: .04em;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background .18s ease, transform .12s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-confirmar:hover:not(:disabled) {
+      background: var(--accent-hover);
+      transform: translateY(-1px);
+    }
+
+    .btn-confirmar:active:not(:disabled) {
+      transform: translateY(0);
+    }
+
+    .btn-confirmar:disabled {
+      opacity: .5;
+      cursor: not-allowed;
+    }
+
+    .btn-confirmar .spinner {
+      display: none;
+      width: 14px;
+      height: 14px;
+      border: 2px solid rgba(255,255,255,.3);
+      border-top-color: white;
+      border-radius: 50%;
+      animation: spin .7s linear infinite;
+      margin: 0 auto;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .btn-confirmar.loading .btn-text { display: none; }
+    .btn-confirmar.loading .spinner  { display: block; }
+
+    .btn-volver {
+      display: block;
+      text-align: center;
+      font-size: 12px;
+      color: var(--muted);
+      text-decoration: none;
+      padding-bottom: 20px;
+      transition: color .15s;
+    }
+
+    .btn-volver:hover { color: var(--text); }
+
+    /* ===== TOAST ===== */
+    .toast {
+      position: fixed;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%) translateY(80px);
+      background: var(--text);
+      color: white;
+      font-size: 13px;
+      padding: 12px 22px;
+      border-radius: 8px;
+      transition: transform .3s ease, opacity .3s ease;
+      opacity: 0;
+      z-index: 9999;
+      white-space: nowrap;
+    }
+
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+
+    .toast.error { background: var(--danger); }
+    .toast.success { background: var(--success); }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 640px) {
+      .checkout-layout {
+        grid-template-columns: 1fr;
+        margin: 24px auto;
+      }
+      .summary-card { position: static; }
+      .checkout-header { padding: 16px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="checkout-header">
+    <a href="index.html" class="logo">CKOS</a>
+    <span class="step-label">RESUMEN DEL PEDIDO</span>
+  </header>
+
+  <div class="checkout-layout">
+
+    <!-- Columna izquierda: lista de productos -->
+    <div class="card">
+      <div class="card-header">
+        <h2>Productos</h2>
+        <span class="count" id="itemCount"></span>
+      </div>
+      <div id="resumenItems"></div>
+    </div>
+
+    <!-- Columna derecha: totales + confirmar -->
+    <div class="card summary-card">
+      <div class="card-header">
+        <h2>Resumen</h2>
+      </div>
+      <div class="summary-rows">
+        <div class="summary-row">
+          <span>Subtotal</span>
+          <span class="val" id="subtotalVal">0,00€</span>
+        </div>
+        <div class="summary-row">
+          <span>Envío</span>
+          <span class="val">Gratis</span>
+        </div>
+        <div class="summary-row total">
+          <span>Total</span>
+          <span class="val" id="totalVal">0,00€</span>
+        </div>
+      </div>
+
+      <button class="btn-confirmar" id="btnConfirmar" onclick="realizarPedido()">
+        <span class="btn-text">Confirmar pedido</span>
+        <span class="spinner"></span>
+      </button>
+      <a href="index.html" class="btn-volver">← Seguir comprando</a>
+    </div>
+
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+    const BASE_URL = "http://localhost:8080";
+
+    // ===== CARGAR CARRITO =====
+    function cargarCarrito() {
+      const data = localStorage.getItem("carrito");
+      return data ? JSON.parse(data) : [];
+    }
+
+    // ===== PINTAR RESUMEN =====
+    function pintarResumen() {
+      const carrito = cargarCarrito();
+      const cont = document.getElementById("resumenItems");
+      const itemCount = document.getElementById("itemCount");
+      cont.innerHTML = "";
+
+      if (carrito.length === 0) {
+        cont.innerHTML = `
+          <div class="empty-state">
+            <div class="empty-icon">🛒</div>
+            <p>Tu carrito está vacío</p>
+          </div>`;
+        document.getElementById("btnConfirmar").disabled = true;
+        itemCount.textContent = "";
+        return;
+      }
+
+      let total = 0;
+      const totalItems = carrito.reduce((acc, i) => acc + i.cantidad, 0);
+      itemCount.textContent = totalItems + (totalItems === 1 ? " artículo" : " artículos");
+
+      carrito.forEach((item, i) => {
+        const subtotal = item.precio * item.cantidad;
+        total += subtotal;
+
+        const div = document.createElement("div");
+        div.className = "checkout-item";
+        div.style.animationDelay = (i * 0.05) + "s";
+        div.innerHTML = `
+          <div>
+            <div class="item-nombre">${item.nombre}</div>
+            ${item.variante ? `<div class="item-variante">${item.variante}</div>` : ""}
+          </div>
+          <span class="item-cantidad">× ${item.cantidad}</span>
+          <span class="item-precio">${subtotal.toFixed(2)}€</span>
+        `;
+        cont.appendChild(div);
+      });
+
+      document.getElementById("subtotalVal").textContent = total.toFixed(2) + "€";
+      document.getElementById("totalVal").textContent   = total.toFixed(2) + "€";
+    }
+
+    // ===== TOAST =====
+    function showToast(msg, type = "") {
+      const t = document.getElementById("toast");
+      t.textContent = msg;
+      t.className = "toast " + type;
+      t.classList.add("show");
+      setTimeout(() => t.classList.remove("show"), 3500);
+    }
+
+    // ===== REALIZAR PEDIDO =====
+    function realizarPedido() {
+      const carrito = cargarCarrito();
+      if (carrito.length === 0) return;
+
+      const btn = document.getElementById("btnConfirmar");
+      btn.classList.add("loading");
+      btn.disabled = true;
+
+      const payload = {
+        usuarioId: 1, // ← reemplazar con id del usuario logueado cuando haya auth
+        lineas: carrito.map(item => ({
+          productoId: item.id,
+          cantidad: item.cantidad
+        }))
+      };
+
+      fetch(BASE_URL + "/pedidos/nuevo", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      })
+      .then(res => {
+        if (!res.ok) return res.text().then(t => { throw new Error(t) });
+        return res.json();
+      })
+      .then(pedido => {
+        localStorage.removeItem("carrito");
+        showToast("✓ Pedido #" + pedido.id + " confirmado", "success");
+        setTimeout(() => window.location.href = "index.html", 2000);
+      })
+      .catch(err => {
+        console.error(err);
+        btn.classList.remove("loading");
+        btn.disabled = false;
+        showToast("❌ " + (err.message || "Error al procesar el pedido"), "error");
+      });
+    }
+
+    // Init
+    pintarResumen();
+  </script>
+
+</body>
+</html>

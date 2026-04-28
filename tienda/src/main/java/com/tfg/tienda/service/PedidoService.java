@@ -1,8 +1,12 @@
 package com.tfg.tienda.service;
 
 import org.springframework.stereotype.Service;
+
+import com.tfg.tienda.dto.PedidoRequestDTO;
 import com.tfg.tienda.model.*;
 import com.tfg.tienda.repository.*;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.math.BigDecimal;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -72,6 +76,45 @@ public class PedidoService {
     String email = SecurityContextHolder.getContext().getAuthentication().getName();
 
     return pedidoRepo.findByUsuarioEmail(email);
-    }   
+    }
+    
+    public Pedido crearPedidoDesdeDTO(PedidoRequestDTO dto) {
+
+    Usuario usuario = usuarioRepo.findById(dto.getUsuarioId())
+        .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuario no encontrado"));
+
+    Pedido pedido = new Pedido();
+    pedido.setUsuario(usuario);
+
+    List<LineaPedido> lineas = new ArrayList<>();
+
+    BigDecimal total = BigDecimal.ZERO;
+
+    for (PedidoRequestDTO.LineaDTO lineaDto : dto.getLineas()) {
+
+        Producto producto = productoRepo.findById(lineaDto.getProductoId())
+            .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Producto no encontrado"));
+
+        if (producto.getStock() < lineaDto.getCantidad()) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Stock insuficiente: " + producto.getNombre());
+        }
+
+        producto.setStock(producto.getStock() - lineaDto.getCantidad());
+
+        LineaPedido linea = new LineaPedido();
+        linea.setPedido(pedido);
+        linea.setProducto(producto);
+        linea.setCantidad(lineaDto.getCantidad());
+        linea.setPrecioUnitario(producto.getPrecio());
+
+        total = total.add(producto.getPrecio().multiply(BigDecimal.valueOf(lineaDto.getCantidad())));
+        lineas.add(linea);
+    }
+
+    pedido.setLineas(lineas);
+    pedido.setTotal(total);
+
+    return pedidoRepo.save(pedido);
+}
     
 }
