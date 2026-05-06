@@ -1,7 +1,23 @@
 <!DOCTYPE html>
+<!--
+  index.html — Página principal (home)
+
+  Estructura:
+    #header-container  → app.js carga header.html aquí con fetch
+    .hero-producto     → producto destacado hardcodeado (id=27, Athena 1800)
+    #cases / #switches → carruseles poblados dinámicamente por app.js > cargarProductos()
+    #miniCarrito       → panel lateral; app.js lo pinta con pintarMiniCarrito()
+    #footer-container  → app.js carga footer.html aquí con fetch
+
+  Nota: el <meta viewport> está ausente aquí; está en checkout.html porque
+  es la única página autónoma. Las demás páginas lo heredan del header.html
+  incluido via fetch (si se añade allí).
+-->
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CKOS-ES</title>
   <link rel="stylesheet" href="style.css">
 </head>

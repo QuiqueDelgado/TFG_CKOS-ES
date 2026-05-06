@@ -1,5 +1,26 @@
+/**
+ * app.js — Script principal compartido por todas las páginas
+ *
+ * Responsabilidades:
+ *   - Cargar header y footer mediante fetch (HTML includes sin framework)
+ *   - Gestionar el carrito en localStorage y pintar el panel lateral
+ *   - Comunicarse con la API REST (BASE_URL) para productos, blog y contacto
+ *   - Manejar autenticación: login / registro / logout via modal
+ *
+ * Patrón de arranque:
+ *   El listener "load" actúa como router: detecta qué IDs existen en el DOM
+ *   y lanza solo las funciones necesarias para esa página concreta.
+ *
+ * Estado global:
+ *   window.carrito  — array de líneas { id, nombre, precio, cantidad, variante? }
+ *                     Se sincroniza con localStorage en cada modificación.
+ *   window.addCarritoDirecto — expuesto en window para que producto.js lo llame
+ *                              sin necesidad de importar módulos.
+ */
+
 window.carrito = [];
 
+/** Punto de entrada a la API REST del backend Spring Boot */
 const BASE_URL  = "http://localhost:8080";
 const AUTH_URL  = BASE_URL + "/auth";
 
@@ -25,6 +46,10 @@ function feedbackBotonAnadido(btn) {
 
 // ======== INIT ========
 
+/**
+ * Router de página: en lugar de un SPA, cada página declara IDs específicos
+ * en su HTML y este listener decide qué datos cargar según los que encuentre.
+ */
 window.addEventListener("load", () => {
     cargarHeader();
     cargarFooter();
@@ -62,7 +87,7 @@ function pintarCarousel(productos, contenedorId) {
         div.className = "producto";
         div.setAttribute("data-id", p.id);
         div.innerHTML = `
-            <img src="${BASE_URL + p.imagen}" class="img-producto" />
+            <img src="${BASE_URL + p.imagen}" class="img-producto" alt="${p.nombre}" />
             <h4>${p.nombre}</h4>
             <p>${p.precio}€</p>
             <button class="btn-add">Añadir</button>
@@ -86,6 +111,11 @@ function scrollCarousel(id, direction) {
 
 // ======== CARRITO ========
 
+/**
+ * Añade al carrito desde tarjetas del carrusel/grid.
+ * Requiere autenticación: redirige al modal si el usuario no está logado.
+ * Lee nombre y precio directamente del DOM del elemento [data-id].
+ */
 function addCarrito(event, id) {
     event.stopPropagation();
     const usuario = checkAuth();
@@ -112,6 +142,11 @@ function addCarrito(event, id) {
     feedbackBotonAnadido(btn);
 }
 
+/**
+ * Variante de addCarrito usada desde producto.js, donde el objeto producto
+ * completo (con imagen y variante de switch) ya está disponible en memoria.
+ * Se expone en window para que producto.js lo llame sin módulos ES.
+ */
 window.addCarritoDirecto = function(p, cantidad, variante) {
     const existente = window.carrito.find(item => item.id === p.id && item.variante === variante);
     if (existente) {
@@ -148,6 +183,11 @@ function toggleCarrito() {
     overlay.classList.toggle("activo");
 }
 
+/**
+ * Reconstruye el panel lateral del carrito por completo en cada cambio.
+ * Renderizado stateless: no hay diff, simplemente se vacía y repinta.
+ * Incluye controles de cantidad, botón eliminar, total y botón de checkout.
+ */
 function pintarMiniCarrito() {
     const cont = document.getElementById("miniCarrito");
     if (!cont) return;
@@ -274,7 +314,7 @@ function pintarGrid(productos) {
         div.className = "producto-grid";
         div.setAttribute("data-id", p.id);
         div.innerHTML = `
-            <img src="${BASE_URL + p.imagen}" class="img-producto">
+            <img src="${BASE_URL + p.imagen}" class="img-producto" alt="${p.nombre}">
             <h4>${p.nombre}</h4>
             <p>${p.precio}€</p>
             <button class="btn-add">Añadir</button>
@@ -325,7 +365,7 @@ function pintarBlog(cont, data) {
         div.style.cursor = "pointer";
         div.onclick = () => window.location.href = `noticia.html?id=${post.id}`;
         div.innerHTML = `
-            <img src="${BASE_URL + post.imagen}" />
+            <img src="${BASE_URL + post.imagen}" alt="${post.titulo}" />
             <div class="blog-info">
                 <p class="fecha">${formatFecha(post.fecha)}</p>
                 <h3>${post.titulo}</h3>
@@ -352,7 +392,7 @@ function pintarNoticia(post) {
     if (!cont) return;
     cont.innerHTML = `
         <div class="noticia-card">
-            <img src="${BASE_URL + post.imagen}" class="noticia-img" />
+            <img src="${BASE_URL + post.imagen}" class="noticia-img" alt="${post.titulo}" />
             <div class="noticia-info">
                 <p class="fecha">${formatFecha(post.fecha)}</p>
                 <h1>${post.titulo}</h1>
@@ -372,6 +412,11 @@ function actualizarContador() {
 
 // ======== AUTH ========
 
+/**
+ * Comprueba si hay sesión activa leyendo localStorage.
+ * No valida el token contra el servidor: es solo una comprobación de UI.
+ * @returns {object|null} Datos del usuario o null si no está logado.
+ */
 function checkAuth() {
     const data = localStorage.getItem("usuario");
     return data ? JSON.parse(data) : null;
@@ -411,6 +456,11 @@ async function logout() {
 
 // ======== MODAL AUTH ========
 
+/**
+ * El modal de auth está definido en header.html y se carga en todas las páginas.
+ * cambiarModoModal reasigna el onclick del botón de submit en tiempo de ejecución
+ * para alternar entre las funciones login() y register() sin duplicar HTML.
+ */
 function abrirModalAuth(modo = "login") {
     const modal = document.getElementById("modalAuth");
     if (modal) { modal.classList.add("activo"); cambiarModoModal(modo); }

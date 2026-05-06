@@ -1,4 +1,24 @@
 <!DOCTYPE html>
+<!--
+  checkout.html — Página de confirmación de pedido
+
+  Página autónoma: NO carga app.js. Tiene su propio CSS (inline) y JS (inline)
+  para evitar dependencias del estado global del carrito de app.js durante el pago.
+
+  Flujo:
+    1. pintarResumen()   → lee localStorage["carrito"] y dibuja los items con animación
+    2. realizarPedido()  → POST /pedidos/nuevo con { usuarioId, lineas[] }
+                           Muestra spinner en el botón durante la petición
+                           En éxito: limpia carrito y redirige a index.html tras 2s
+                           En error: muestra toast rojo con el mensaje del servidor
+
+  Componentes visuales:
+    .checkout-layout     → grid 2 columnas (items | resumen); 1 columna en móvil ≤640px
+    .summary-card        → sticky: permanece visible al hacer scroll en pantallas largas
+    .toast               → notificación flotante (success / error) con transición CSS
+    .btn-confirmar       → estado loading: oculta texto y muestra spinner SVG via CSS
+-->
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">

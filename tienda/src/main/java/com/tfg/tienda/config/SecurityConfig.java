@@ -45,7 +45,6 @@ public class SecurityConfig {
             .sessionCreationPolicy(
                 org.springframework.security.config.http.SessionCreationPolicy.IF_REQUIRED
             )
-            
         )
         .formLogin(form -> form.disable())
         .httpBasic(basic -> basic.disable())

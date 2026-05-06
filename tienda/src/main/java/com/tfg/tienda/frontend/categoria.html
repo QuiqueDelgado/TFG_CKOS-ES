@@ -1,7 +1,17 @@
 <!DOCTYPE html>
+<!--
+  categoria.html — Grid de productos filtrado por categoría
+
+  Recibe el filtro mediante ?cat=<nombre> en la URL.
+  app.js cargarProductosPorCategoria() lee ese parámetro, obtiene el listado
+  completo de /productos y filtra por categoria.nombre (insensible a mayúsculas).
+  El resultado se pinta en #gridProductos con la clase .grid-categoria (4 columnas
+  en desktop, 2 en tablet, 1 en movil segun style.css).
+-->
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Categoría</title>
   <link rel="stylesheet" href="style.css">
 </head>

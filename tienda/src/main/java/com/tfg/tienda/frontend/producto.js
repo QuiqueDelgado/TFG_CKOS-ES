@@ -1,4 +1,20 @@
-console.log("producto.js funcionando");
+/**
+ * producto.js — Lógica exclusiva de la página de detalle (producto.html)
+ *
+ * Se carga DESPUÉS de app.js, por lo que BASE_URL y window.addCarritoDirecto
+ * ya están disponibles cuando este script se ejecuta.
+ *
+ * Responsabilidades:
+ *   - Leer el parámetro ?id= de la URL y pedir el producto a la API
+ *   - Pintar imagen, descripción y características (con fallback por categoría
+ *     cuando el backend no devuelve descripción propia)
+ *   - Gestionar la selección de variante (fuerza de actuación) para switches
+ *   - Controlar el selector de cantidad (+/−) y el botón "Añadir al carrito"
+ *
+ * Nota: pintarProducto aquí shadow la función homónima de app.js porque
+ * necesita lógica adicional (fallbacks, opciones de variante). app.js usa
+ * su propia versión más simple en el carrusel de la home.
+ */
 
 function cargarProducto() {
     const params = new URLSearchParams(window.location.search);
@@ -22,7 +38,7 @@ function pintarProducto(p) {
 
     // IMAGEN
     const imgDiv = document.querySelector(".imagen");
-    imgDiv.innerHTML = `<img src="${BASE_URL + p.imagen}" />`;
+    imgDiv.innerHTML = `<img src="${BASE_URL + p.imagen}" alt="${p.nombre}" />`;
 
     // 🔴 NORMALIZAMOS CATEGORÍA
     const categoria = p.categoria?.nombre?.toLowerCase();
@@ -126,7 +142,7 @@ function pintarProducto(p) {
         ul.innerHTML = `<li>Producto premium</li>`;
     }
 
-    // ===== OPCIONES (solo switches) =====
+    // Las opciones de fuerza de actuación solo tienen sentido para switches
     const opciones = document.querySelector(".opciones");
 
     if (categoria !== "switches") {
@@ -136,6 +152,11 @@ function pintarProducto(p) {
     setupCompra(p);
 }
 
+/**
+ * Conecta los controles de cantidad y el botón de compra con el producto.
+ * Para switches, valida que se haya seleccionado una variante de fuerza antes
+ * de añadir; si no, marca el selector con borde rojo y aborta.
+ */
 function setupCompra(p) {
 
     const categoria = p.categoria?.nombre?.toLowerCase();
@@ -151,7 +172,7 @@ function setupCompra(p) {
 
     const btn = document.getElementById("btnAdd");
 
-    btn.onclick = null; // evitar duplicados
+    btn.onclick = null; // evitar que pintarProducto acumule listeners al recargar
 
     btn.onclick = () => {
 

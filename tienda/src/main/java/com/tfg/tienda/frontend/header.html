@@ -1,3 +1,16 @@
+<!--
+  header.html — Cabecera compartida inyectada via fetch en todas las páginas
+
+  Contiene:
+    .logo            → enlace a la home con el logotipo
+    .menu            → navegación principal con dropdown de categorías
+                       Las categorías pasan el nombre como ?cat= en la URL
+    .carrito-wrapper → icono del carrito con contador de unidades (#contadorCarrito)
+                       El click se enlaza en app.js > cargarHeader() tras insertar el HTML
+    #modalAuth       → modal de login/registro; siempre presente en el DOM.
+                       app.js > abrirModalAuth() lo activa añadiendo la clase "activo"
+                       y cambiarModoModal() reasigna el submit entre login y register.
+-->
 <header class="header">
 
   <div class="logo">
